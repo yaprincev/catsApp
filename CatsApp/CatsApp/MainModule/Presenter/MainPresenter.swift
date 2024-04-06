@@ -15,7 +15,7 @@ protocol MainViewProtocol: AnyObject {
 protocol MainViewPresenterProtocol: AnyObject {
     init(view: MainViewProtocol, networkService: NetworkServiceProtocol) //router: RouterProtocol
     func getCats()
-    func tapOnTheCat(cat: Cat?)
+    //func tapOnTheCat(cat: Cat?)
     var cats: [Cat]? { get set }
 }
 
@@ -29,5 +29,19 @@ class MainPresenter: MainViewPresenterProtocol {
         self.view = view
         self.networkService = networkService
         getCats()
+    }
+    // func tapOnTheCat(cat: Cat?) { }
+    
+    func getCats() {
+        networkService.getCats { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let cats):
+                self.cats = cats
+                self.view?.success()
+            case .failure(let error):
+                self.view?.failure(error: error)
+            }
+        }
     }
 }

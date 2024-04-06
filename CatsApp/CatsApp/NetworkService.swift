@@ -8,11 +8,11 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
-    func getComments(completion: @escaping (Result<[Cat]?, Error>) -> Void)
+    func getCats(completion: @escaping (Result<[Cat]?, Error>) -> Void)
 }
 
 
-class NetrworkService: NetworkServiceProtocol {
+class NetworkService: NetworkServiceProtocol {
 
     
     let sessionConfiguration = URLSessionConfiguration.default
@@ -20,7 +20,7 @@ class NetrworkService: NetworkServiceProtocol {
     let session = URLSession.shared
     
     
-    func getComments(completion: @escaping (Result<[Cat]?, Error>) -> Void) {
+    func getCats(completion: @escaping (Result<[Cat]?, Error>) -> Void) {
         guard let url = URL(string: "https://api.thecatapi.com/v1/images/search?limit=10") else { return }
         session.dataTask(with: url) { data, response, error in
             if let error = error {
@@ -30,7 +30,7 @@ class NetrworkService: NetworkServiceProtocol {
             do {
                 let obj = try self.decoder.decode([Cat].self, from: data!)
                 completion(.success(obj))
-                print("ok")
+                print(obj)
             } catch {
                 completion(.failure(error))
             }
