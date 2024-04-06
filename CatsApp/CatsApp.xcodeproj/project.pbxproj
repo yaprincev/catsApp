@@ -14,6 +14,8 @@
 		823E91EA2BC08C3200B8F31D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823E91E82BC08C3200B8F31D /* MainViewController.swift */; };
 		823E91EB2BC08C3200B8F31D /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 823E91E92BC08C3200B8F31D /* MainViewController.xib */; };
 		82F9FB662BC0958600C95BD7 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F9FB652BC0958600C95BD7 /* MainPresenter.swift */; };
+		82F9FB692BC09A1500C95BD7 /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F9FB682BC09A1500C95BD7 /* Cat.swift */; };
+		82F9FB6B2BC0A0B400C95BD7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F9FB6A2BC0A0B300C95BD7 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		823E91E82BC08C3200B8F31D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		823E91E92BC08C3200B8F31D /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		82F9FB652BC0958600C95BD7 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		82F9FB682BC09A1500C95BD7 /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
+		82F9FB6A2BC0A0B300C95BD7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +46,7 @@
 		823E91C72BC08B9400B8F31D = {
 			isa = PBXGroup;
 			children = (
+				82F9FB6A2BC0A0B300C95BD7 /* NetworkService.swift */,
 				823E91D22BC08B9400B8F31D /* CatsApp */,
 				823E91D12BC08B9400B8F31D /* Products */,
 			);
@@ -98,6 +103,7 @@
 		82F9FB672BC097AC00C95BD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				82F9FB682BC09A1500C95BD7 /* Cat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,7 +181,9 @@
 			files = (
 				823E91EA2BC08C3200B8F31D /* MainViewController.swift in Sources */,
 				823E91D42BC08B9400B8F31D /* AppDelegate.swift in Sources */,
+				82F9FB692BC09A1500C95BD7 /* Cat.swift in Sources */,
 				823E91D62BC08B9400B8F31D /* SceneDelegate.swift in Sources */,
+				82F9FB6B2BC0A0B400C95BD7 /* NetworkService.swift in Sources */,
 				82F9FB662BC0958600C95BD7 /* MainPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
