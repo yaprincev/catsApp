@@ -30,7 +30,6 @@ class NetworkService: NetworkServiceProtocol {
             do {
                 let obj = try self.decoder.decode([Cat].self, from: data!)
                 completion(.success(obj))
-                print(obj)
             } catch {
                 completion(.failure(error))
             }
