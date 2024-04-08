@@ -5,9 +5,8 @@
 //  Created by Максим Япринцев on 08.04.2024.
 //
 
-import Foundation
 import UIKit
-
+import Foundation
 
 struct ImageLoader {
     let queueForLoad = DispatchQueue.global(qos: .utility)

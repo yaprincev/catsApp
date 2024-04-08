@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 protocol NetworkServiceProtocol {
     func getCats(completion: @escaping (Result<[Cat]?, Error>) -> Void)
+    func loadImage(from url: URL, _ onLoadWasCompleted: @escaping (_ result: Result<UIImage, Error>) -> Void)
+    
 }
 
 
@@ -21,7 +24,7 @@ class NetworkService: NetworkServiceProtocol {
     
     
     func getCats(completion: @escaping (Result<[Cat]?, Error>) -> Void) {
-        guard let url = URL(string: "https://api.thecatapi.com/v1/images/search?limit=10") else { return }
+        guard let url = URL(string: "https://api.thecatapi.com/v1/images/search?limit=30") else { return }
         session.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(error))
@@ -34,5 +37,17 @@ class NetworkService: NetworkServiceProtocol {
                 completion(.failure(error))
             }
         }.resume()
+    }
+    
+    func loadImage(from url: URL, _ onLoadWasCompleted: @escaping (_ result: Result<UIImage, Error>) -> Void) {
+        session.dataTask(with: url) { data, _, error in
+            if let error = error {
+                onLoadWasCompleted(.failure(error))
+            }
+            if let data = data, let image = UIImage(data: data) {
+                onLoadWasCompleted(.success(image))
+            }
+        }
+        .resume()
     }
 }
