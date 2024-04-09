@@ -73,7 +73,12 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width - 30, height: view.frame.width - 20 * 1.5)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let id = presenter.cats?[indexPath.row].id
     }
 }
