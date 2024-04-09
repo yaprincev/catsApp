@@ -80,5 +80,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let id = presenter.cats?[indexPath.row].id
+        presenter.tapOnTheCat(cat: presenter.cats?[indexPath.row])
     }
 }

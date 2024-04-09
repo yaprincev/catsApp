@@ -11,12 +11,12 @@ protocol DetailViewProtocol: AnyObject {
     func setCat(cat: Cat?)
 }
 
-protocol DetailViewPresenterProtocl: AnyObject {
+protocol DetailViewPresenterProtocol: AnyObject {
     init(view: DetailViewProtocol, networkService: NetworkService, router: RouterProtocol, cat: Cat?)
     func setCat()
 }
 
-class DetailPresenter: DetailViewPresenterProtocl {
+class DetailPresenter: DetailViewPresenterProtocol {
     weak var view: DetailViewProtocol?
     let networkService: NetworkServiceProtocol!
     var router: RouterProtocol?

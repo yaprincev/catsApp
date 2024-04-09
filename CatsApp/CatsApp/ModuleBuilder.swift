@@ -25,7 +25,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
     func createDetailModule(cat: Cat?, router: RouterProtocol) -> UIViewController {
         let view = DetailViewController()
         let networkService = NetworkService()
-        let presenter = DetailPresenter(view: view, networkService: networkService, router: Router, cat: Cat)
+        let presenter = DetailPresenter(view: view, networkService: networkService, router: router, cat: cat)
         view.presenter = presenter
         return view
     }
