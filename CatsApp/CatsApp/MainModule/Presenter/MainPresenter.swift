@@ -25,12 +25,15 @@ class MainPresenter: MainViewPresenterProtocol {
     let networkService: NetworkServiceProtocol
     var cats: [Cat]?
     
-    required init(view: MainViewProtocol, networkService: NetworkServiceProtocol) {
+    required init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol) {
         self.view = view
         self.networkService = networkService
         getCats()
     }
-    // func tapOnTheCat(cat: Cat?) { }
+    
+    func tapOnTheCat(cat: Cat?) {
+        router?.showDetail(cat: cat)
+    }
     
     func getCats() {
         networkService.getCats { [weak self] result in
