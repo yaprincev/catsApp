@@ -9,17 +9,25 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var originLabel: UILabel!
-    @IBOutlet weak var describtionLabel: UILabel!
+    // MARK: - Views
+    
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var originLabel: UILabel!
+    @IBOutlet private weak var describtionLabel: UILabel!
+    
+    // MARK: - Presenter
     
     var presenter: DetailViewPresenterProtocol!
+    
+    // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.setCat()
     }
 }
+
+
 
 extension DetailViewController: DetailViewProtocol {
     func setCat(catInfo: CatInfo?) {

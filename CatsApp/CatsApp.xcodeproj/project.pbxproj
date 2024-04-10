@@ -78,12 +78,13 @@
 		823E91D22BC08B9400B8F31D /* CatsApp */ = {
 			isa = PBXGroup;
 			children = (
-				82F9FB872BC43AF700C95BD7 /* Router.swift */,
+				82F9FB892BC73B7900C95BD7 /* Extensions */,
 				82F9FB7B2BC43A4F00C95BD7 /* DetailModule */,
 				82F9FB6E2BC3EEFE00C95BD7 /* Networking */,
-				82F9FB6C2BC1A56B00C95BD7 /* ModuleBuilder.swift */,
 				823E91E72BC08BE800B8F31D /* MainModule */,
 				823E91D32BC08B9400B8F31D /* AppDelegate.swift */,
+				82F9FB6C2BC1A56B00C95BD7 /* ModuleBuilder.swift */,
+				82F9FB872BC43AF700C95BD7 /* Router.swift */,
 				823E91D52BC08B9400B8F31D /* SceneDelegate.swift */,
 				823E91DC2BC08B9900B8F31D /* Assets.xcassets */,
 				823E91DE2BC08B9900B8F31D /* LaunchScreen.storyboard */,
@@ -96,8 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				82F9FB672BC097AC00C95BD7 /* Model */,
-				82F9FB642BC0956600C95BD7 /* Presenter */,
 				82F9FB632BC0955C00C95BD7 /* View */,
+				82F9FB642BC0956600C95BD7 /* Presenter */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -132,7 +133,6 @@
 			children = (
 				82F9FB6A2BC0A0B300C95BD7 /* NetworkService.swift */,
 				82F9FB772BC3F94800C95BD7 /* ImageLoader.swift */,
-				82F9FB792BC3FCE300C95BD7 /* UIImageLoader.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -140,9 +140,9 @@
 		82F9FB7B2BC43A4F00C95BD7 /* DetailModule */ = {
 			isa = PBXGroup;
 			children = (
-				82F9FB7E2BC43A6E00C95BD7 /* Presenter */,
-				82F9FB7D2BC43A6900C95BD7 /* View */,
 				82F9FB7C2BC43A6200C95BD7 /* Model */,
+				82F9FB7D2BC43A6900C95BD7 /* View */,
+				82F9FB7E2BC43A6E00C95BD7 /* Presenter */,
 			);
 			path = DetailModule;
 			sourceTree = "<group>";
@@ -170,6 +170,14 @@
 				82F9FB832BC43AB800C95BD7 /* DetailPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		82F9FB892BC73B7900C95BD7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				82F9FB792BC3FCE300C95BD7 /* UIImageLoader.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

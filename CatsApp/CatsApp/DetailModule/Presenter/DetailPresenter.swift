@@ -7,9 +7,13 @@
 
 import Foundation
 
+// MARK: - Output
+
 protocol DetailViewProtocol: AnyObject {
     func setCat(catInfo: CatInfo?)
 }
+
+// MARK: - Input
 
 protocol DetailViewPresenterProtocol: AnyObject {
     init(view: DetailViewProtocol, networkService: NetworkService, router: RouterProtocol, cat: Cat?)

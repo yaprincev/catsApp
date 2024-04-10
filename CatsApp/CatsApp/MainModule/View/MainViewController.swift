@@ -9,21 +9,21 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    // MARK: - View
+    
     @IBOutlet private weak var collectionView: UICollectionView!
+    
+    // MARK: - Presenter
     
     var presenter: MainViewPresenterProtocol!
     
+    // MARK: - UIViewController
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-        collectionView.isScrollEnabled = true
-        collectionView.contentInset = .init(top: 10, left: 10, bottom: 10, right: 16)
-
+        configureAppearence()
     }
 }
-
 
 
 extension MainViewController: MainViewProtocol {
@@ -36,6 +36,25 @@ extension MainViewController: MainViewProtocol {
     func failure(error: Error) {
     }
 }
+
+// MARK: - Private methods
+
+private extension MainViewController {
+    func configureAppearence() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.isScrollEnabled = true
+        collectionView.contentInset = .init(top: 10, left: 10, bottom: 10, right: 16)
+    }
+    func setUpImageView(imageView: UIImageView) {
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 15
+    }
+}
+
+// MARK: - UICollectionView
 
 extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -64,9 +83,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         }
             
         let imageView = UIImageView(frame: cell.contentView.bounds)
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 15
+        setUpImageView(imageView: imageView)
         imageView.loadImage(from: imageUrl)
         cell.contentView.addSubview(imageView)
             
@@ -79,7 +96,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let id = presenter.cats?[indexPath.row].id
         presenter.tapOnTheCat(cat: presenter.cats?[indexPath.row])
     }
 }

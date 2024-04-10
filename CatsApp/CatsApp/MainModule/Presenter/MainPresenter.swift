@@ -7,10 +7,14 @@
 
 import Foundation
 
+// MARK: - Output
+
 protocol MainViewProtocol: AnyObject {
     func success()
     func failure(error: Error)
 }
+
+// MARK: - Input
 
 protocol MainViewPresenterProtocol: AnyObject {
     init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol)
