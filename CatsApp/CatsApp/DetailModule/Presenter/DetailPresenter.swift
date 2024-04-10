@@ -8,12 +8,13 @@
 import Foundation
 
 protocol DetailViewProtocol: AnyObject {
-    func setCat(cat: Cat?)
+    func setCat(catInfo: CatInfo?)
 }
 
 protocol DetailViewPresenterProtocol: AnyObject {
     init(view: DetailViewProtocol, networkService: NetworkService, router: RouterProtocol, cat: Cat?)
     func setCat()
+    var catInfo: CatInfo? { get set }
 }
 
 class DetailPresenter: DetailViewPresenterProtocol {
@@ -21,17 +22,31 @@ class DetailPresenter: DetailViewPresenterProtocol {
     let networkService: NetworkServiceProtocol!
     var router: RouterProtocol?
     var cat: Cat?
+    var catInfo: CatInfo?
     
     required init(view: DetailViewProtocol, networkService: NetworkService, router: RouterProtocol, cat: Cat?) {
         self.view = view
         self.networkService = networkService
         self.router = router
         self.cat = cat
+        getCatInfo()
+        
     }
     
     func setCat() {
-        self.view?.setCat(cat: cat)
+        self.view?.setCat(catInfo: catInfo)
     }
     
-    
+    func getCatInfo() {
+        networkService.getCatInfo(for: cat?.id ?? "") { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let catInfo):
+                self.catInfo = catInfo
+                setCat()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

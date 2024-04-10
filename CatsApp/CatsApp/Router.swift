@@ -32,7 +32,6 @@ class Router: RouterProtocol {
     }
     
     func showDetail(cat: Cat?) {
-        print(1)
         if let navigationController = navigationController {
             guard let detailViewController = assemblyBuilder?.createDetailModule(cat: cat, router: self) else { return }
             navigationController.pushViewController(detailViewController, animated: true)

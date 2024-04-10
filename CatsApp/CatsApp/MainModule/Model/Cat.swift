@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Cat: Decodable {
+struct Cat: Codable {
     var id: String
     var url: String
 }
