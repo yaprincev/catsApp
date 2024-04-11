@@ -10,7 +10,6 @@ import UIKit
 
 protocol NetworkServiceProtocol {
     func getCats(completion: @escaping (Result<[Cat]?, Error>) -> Void)
-    func loadImage(from url: URL, _ onLoadWasCompleted: @escaping (_ result: Result<UIImage, Error>) -> Void)
     func getCatInfo(for id: String, completion: @escaping (Result<CatInfo?, Error>) -> Void)
 }
 
