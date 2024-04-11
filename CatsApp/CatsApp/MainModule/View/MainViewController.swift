@@ -64,7 +64,7 @@ private extension MainViewController {
             self.errorLabel.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 self.errorLabel.topAnchor.constraint(equalTo: self.view.topAnchor),
-                self.errorLabel.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 15),
+                self.errorLabel.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 35),
                 self.errorLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
                 self.errorLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
             ])
