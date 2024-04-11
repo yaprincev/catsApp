@@ -17,12 +17,14 @@ protocol NetworkServiceProtocol {
 
 class NetworkService: NetworkServiceProtocol {
 
+    // MARK: - Constants
     
     let sessionConfiguration = URLSessionConfiguration.default
     let decoder = JSONDecoder()
     let session = URLSession.shared
     let apiKey = "live_zj8k3tkUBRYHpoByq7RTmV0NBz8moVcujbGMA0DVyN4FJtxheqbH1Uuv3DF9cOB3"
     
+    // MARK: - Get image of cats
     
     func getCats(completion: @escaping (Result<[Cat]?, Error>) -> Void) {
         guard let url = URL(string: "https://api.thecatapi.com/v1/images/search?limit=10&has_breeds=1&api_key=\(apiKey)") else { return }
@@ -40,17 +42,7 @@ class NetworkService: NetworkServiceProtocol {
         }.resume()
     }
     
-    func loadImage(from url: URL, _ onLoadWasCompleted: @escaping (_ result: Result<UIImage, Error>) -> Void) {
-        session.dataTask(with: url) { data, _, error in
-            if let error = error {
-                onLoadWasCompleted(.failure(error))
-            }
-            if let data = data, let image = UIImage(data: data) {
-                onLoadWasCompleted(.success(image))
-            }
-        }
-        .resume()
-    }
+    // MARK: - Get cat's info by id
     
     func getCatInfo(for id: String, completion: @escaping (Result<CatInfo?, Error>) -> Void) {
         guard let url = URL(string: "https://api.thecatapi.com/v1/images/\(id)") else { return }
