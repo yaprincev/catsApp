@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
     // MARK: - Presenter
     
     var presenter: MainViewPresenterProtocol!
+    private var errorLabel = UILabel()
     
     // MARK: - UIViewController
     
@@ -34,6 +35,7 @@ extension MainViewController: MainViewProtocol {
     }
     
     func failure(error: Error) {
+        showError(error: error)
     }
 }
 
@@ -51,6 +53,23 @@ private extension MainViewController {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 15
+    }
+    
+    func showError(error: Error) {
+        DispatchQueue.main.async {
+            self.view.addSubview(self.errorLabel)
+            self.errorLabel.text = error.localizedDescription
+            self.errorLabel.numberOfLines = 0
+            self.errorLabel.textAlignment = .center
+            self.errorLabel.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                self.errorLabel.topAnchor.constraint(equalTo: self.view.topAnchor),
+                self.errorLabel.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 15),
+                self.errorLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
+                self.errorLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
+            ])
+            self.errorLabel.backgroundColor = .red
+        }
     }
 }
 

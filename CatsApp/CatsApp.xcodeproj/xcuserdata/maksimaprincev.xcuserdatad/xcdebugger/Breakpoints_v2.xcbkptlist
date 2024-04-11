@@ -212,5 +212,69 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B078EEA5-A367-4290-A1B0-BF6CEE158E77"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CatsApp/MainModule/Presenter/MainPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "getCats()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "59F6DDFD-998C-4F25-8FF7-6BF04AD2EACF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CatsApp/MainModule/View/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "showError(error:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "59F6DDFD-998C-4F25-8FF7-6BF04AD2EACF - ddf611271df8db75"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in CatsApp.MainViewController.showError(error: Swift.Error) -&gt; ()"
+                  moduleName = "CatsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimaprincev/Desktop/catsApp/CatsApp/CatsApp/MainModule/View/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "1563">
+               </Location>
+               <Location
+                  uuid = "59F6DDFD-998C-4F25-8FF7-6BF04AD2EACF - ddf611271df8dc6d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in CatsApp.MainViewController.showError(error: Swift.Error) -&gt; ()"
+                  moduleName = "CatsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimaprincev/Desktop/catsApp/CatsApp/CatsApp/MainModule/View/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "1317">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
