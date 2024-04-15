@@ -18,7 +18,6 @@ class NetworkService: NetworkConfiguration, NetworkServiceProtocol {
         let id = id ?? ""
         guard var url = url else { return }
         url.append(path: id)
-        print(url)
         session.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(error))
