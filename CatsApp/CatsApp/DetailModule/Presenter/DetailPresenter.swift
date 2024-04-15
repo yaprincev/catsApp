@@ -42,7 +42,7 @@ class DetailPresenter: DetailViewPresenterProtocol {
     }
     
     func getCatInfo() {
-        networkService.getCatInfo(for: cat?.id ?? "") { [weak self] result in
+        networkService.getInfo(forURL: URLStorage.idCatURL.url, id: cat?.id, model: CatInfo.self) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let catInfo):

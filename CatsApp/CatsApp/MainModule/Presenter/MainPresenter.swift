@@ -41,7 +41,8 @@ class MainPresenter: MainViewPresenterProtocol {
     }
     
     func getCats() {
-        networkService.getCats { [weak self] result in
+       
+        networkService.getInfo(forURL: URLStorage.imageCatURL.url, id: nil, model: [Cat].self) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let cats):

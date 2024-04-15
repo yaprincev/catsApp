@@ -9,46 +9,27 @@ import Foundation
 import UIKit
 
 protocol NetworkServiceProtocol {
-    func getCats(completion: @escaping (Result<[Cat]?, Error>) -> Void)
-    func getCatInfo(for id: String, completion: @escaping (Result<CatInfo?, Error>) -> Void)
+    func getInfo <T: Decodable>(forURL url: URL?, id: String?, model: T.Type, completion: @escaping (Result<T, Error>) -> Void)
 }
 
 
 class NetworkService: NetworkConfiguration, NetworkServiceProtocol {
-    // MARK: - Get image of cats
-    
-    func getCats(completion: @escaping (Result<[Cat]?, Error>) -> Void) {
-        guard let url = URL(string: "https://api.thecatapi.com/v1/images/search?limit=10&has_breeds=1&api_key=\(apiKey)") else { return }
+    func getInfo <T: Decodable>(forURL url: URL?, id: String?, model: T.Type ,completion: @escaping (Result<T, Error>) -> Void) {
+        let id = id ?? ""
+        guard var url = url else { return }
+        url.append(path: id)
+        print(url)
         session.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
             }
             do {
-                let obj = try self.decoder.decode([Cat].self, from: data!)
+                let obj = try self.decoder.decode(model.self, from: data!)
                 completion(.success(obj))
             } catch {
                 completion(.failure(error))
             }
         }.resume()
     }
-    
-    // MARK: - Get cat's info by id
-    
-    func getCatInfo(for id: String, completion: @escaping (Result<CatInfo?, Error>) -> Void) {
-        guard let url = URL(string: "https://api.thecatapi.com/v1/images/\(id)") else { return }
-        session.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            do {
-                let obj = try self.decoder.decode(CatInfo.self, from: data!)
-                completion(.success(obj))
-            } catch {
-                completion(.failure(error))
-            }
-        }.resume()
-    }
-    
 }

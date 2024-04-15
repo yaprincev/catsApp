@@ -16,7 +16,7 @@ enum URLStorage {
         case .idCatURL:
             return URL(string: "https://api.thecatapi.com/v1/images/")
         case .imageCatURL:
-            return URL(string: "https://api.thecatapi.com/v1/images/search?limit=10&has_breeds=1&api_key=")
+            return URL(string: "https://api.thecatapi.com/v1/images/search?limit=10&has_breeds=1&api_key=live_zj8k3tkUBRYHpoByq7RTmV0NBz8moVcujbGMA0DVyN4FJtxheqbH1Uuv3DF9cOB3")
         }
     }
 }
