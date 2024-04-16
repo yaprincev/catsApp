@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol BaseURLStorage {
+    var url: URL { get set }
+}
+
 enum URLStorage {
     case idCatURL
     case imageCatURL

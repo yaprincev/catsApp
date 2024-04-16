@@ -12,7 +12,7 @@ protocol RouterProtocol {
     var assemblyBuilder: AssemblyBuilderProtocol? { get set }
     var navigationController: UINavigationController? { get set }
     func initialViewController()
-    func showDetail(cat: Cat?)
+    //func showDetail(cat: Cat?)
 }
 
 class Router: RouterProtocol {
@@ -30,18 +30,12 @@ class Router: RouterProtocol {
             //guard let mainViewController =
               //      configurator.createMainModule(router: self)
                     //assemblyBuilder?.createMainModule(router: self) else { return }
-            let mainViewController = configurator.createMainModule(router: self)
+            let mainViewController = configurator.createMainModule()
             navigationController.viewControllers = [mainViewController]
         }
     }
     
-    func showDetail(cat: Cat?) {
-        let configurator = DetailModuleConfigurator()
-        if let navigationController = navigationController {
-            guard let detailViewController = assemblyBuilder?.createDetailModule(cat: cat, router: self) else { return }
-            navigationController.pushViewController(detailViewController, animated: true)
-        }
-    }
+
     
     
 }

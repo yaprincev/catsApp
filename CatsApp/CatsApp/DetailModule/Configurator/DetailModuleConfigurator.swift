@@ -10,10 +10,10 @@ import UIKit
 
 
 class DetailModuleConfigurator {
-    func createDetailModule(cat: Cat?, router: RouterProtocol) -> UIViewController {
+    func createDetailModule(cat: Cat?) -> UIViewController {
         let view = DetailViewController()
         let networkService = NetworkService()
-        let presenter = DetailPresenter(view: view, networkService: networkService, router: router, cat: cat)
+        let presenter = DetailPresenter(view: view, networkService: networkService, cat: cat)
         view.presenter = presenter
         return view
     }

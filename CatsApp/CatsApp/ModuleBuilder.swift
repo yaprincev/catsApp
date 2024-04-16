@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 
 protocol AssemblyBuilderProtocol {
-    func createMainModule(router: RouterProtocol) -> UIViewController
+    func createMainModule(router: MainRouter) -> UIViewController
     func createDetailModule(cat: Cat?, router: RouterProtocol) -> UIViewController
 }
 
 class AssemblyBuilder: AssemblyBuilderProtocol {
-    func createMainModule(router: RouterProtocol) -> UIViewController {
+    func createMainModule(router: MainRouter) -> UIViewController {
         let view = MainViewController()
         let networkService = NetworkService()
         let presenter = MainPresenter(view: view, networkService: networkService, router: router)
@@ -25,7 +25,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
     func createDetailModule(cat: Cat?, router: RouterProtocol) -> UIViewController {
         let view = DetailViewController()
         let networkService = NetworkService()
-        let presenter = DetailPresenter(view: view, networkService: networkService, router: router, cat: cat)
+        let presenter = DetailPresenter(view: view, networkService: networkService, cat: cat)
         view.presenter = presenter
         return view
     }

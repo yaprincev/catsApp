@@ -17,7 +17,7 @@ protocol MainViewProtocol: AnyObject {
 // MARK: - Output
 
 protocol MainViewPresenterProtocol: AnyObject {
-    init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol)
+    init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: MainRouter)
     func getCats()
     func tapOnTheCat(cat: Cat?)
     var cats: [Cat]? { get set }
@@ -25,11 +25,12 @@ protocol MainViewPresenterProtocol: AnyObject {
 
 class MainPresenter: MainViewPresenterProtocol {
     weak var view: MainViewProtocol?
-    var router: RouterProtocol?
+    var router: MainRouter?
     let networkService: NetworkServiceProtocol!
     var cats: [Cat]?
+    var detailModule: DetailModuleInput?
     
-    required init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol) {
+    required init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: MainRouter) {
         self.view = view
         self.networkService = networkService
         self.router = router
@@ -37,7 +38,8 @@ class MainPresenter: MainViewPresenterProtocol {
     }
     
     func tapOnTheCat(cat: Cat?) {
-        router?.showDetail(cat: cat)
+        router?.navigateToDetail()
+        //detailModule?.configureModule(cat: cat)
     }
     
     func getCats() {

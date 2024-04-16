@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 
 class MainModuleConfigurator {
-    func createMainModule(router: RouterProtocol) -> UIViewController {
+    func createMainModule() -> UIViewController {
         let view = MainViewController()
+        let router = MainRouter()
         let networkService = NetworkService()
         let presenter = MainPresenter(view: view, networkService: networkService, router: router)
         view.presenter = presenter

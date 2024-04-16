@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, ModuleTransitionable {
     
     // MARK: - View
     
@@ -118,3 +118,5 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         presenter.tapOnTheCat(cat: presenter.cats?[indexPath.row])
     }
 }
+
+
