@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3F8BC96D2BCD3ADE0018489B /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BC96C2BCD3ADE0018489B /* NetworkConfiguration.swift */; };
 		3F8BC9712BCD3C460018489B /* URLStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BC9702BCD3C460018489B /* URLStorage.swift */; };
+		3FAEE7BC2BCE7BF8007204D2 /* MainModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEE7BB2BCE7BF8007204D2 /* MainModuleConfigurator.swift */; };
+		3FAEE7BF2BCE7FEC007204D2 /* DetailModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEE7BE2BCE7FEC007204D2 /* DetailModuleConfigurator.swift */; };
 		823E91D42BC08B9400B8F31D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823E91D32BC08B9400B8F31D /* AppDelegate.swift */; };
 		823E91D62BC08B9400B8F31D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823E91D52BC08B9400B8F31D /* SceneDelegate.swift */; };
 		823E91DD2BC08B9900B8F31D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 823E91DC2BC08B9900B8F31D /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		3F8BC96C2BCD3ADE0018489B /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
 		3F8BC9702BCD3C460018489B /* URLStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStorage.swift; sourceTree = "<group>"; };
+		3FAEE7BB2BCE7BF8007204D2 /* MainModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleConfigurator.swift; sourceTree = "<group>"; };
+		3FAEE7BE2BCE7FEC007204D2 /* DetailModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModuleConfigurator.swift; sourceTree = "<group>"; };
 		823E91D02BC08B9400B8F31D /* CatsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		823E91D32BC08B9400B8F31D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		823E91D52BC08B9400B8F31D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FAEE7BA2BCE7BCE007204D2 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				3FAEE7BB2BCE7BF8007204D2 /* MainModuleConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		3FAEE7BD2BCE7FB3007204D2 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				3FAEE7BE2BCE7FEC007204D2 /* DetailModuleConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		3FAEE7C02BCE878C007204D2 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		823E91C72BC08B9400B8F31D = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +127,8 @@
 		823E91E72BC08BE800B8F31D /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
+				3FAEE7C02BCE878C007204D2 /* Router */,
+				3FAEE7BA2BCE7BCE007204D2 /* Configurator */,
 				82F9FB672BC097AC00C95BD7 /* Model */,
 				82F9FB632BC0955C00C95BD7 /* View */,
 				82F9FB642BC0956600C95BD7 /* Presenter */,
@@ -146,6 +175,7 @@
 		82F9FB7B2BC43A4F00C95BD7 /* DetailModule */ = {
 			isa = PBXGroup;
 			children = (
+				3FAEE7BD2BCE7FB3007204D2 /* Configurator */,
 				82F9FB7C2BC43A6200C95BD7 /* Model */,
 				82F9FB7D2BC43A6900C95BD7 /* View */,
 				82F9FB7E2BC43A6E00C95BD7 /* Presenter */,
@@ -260,9 +290,11 @@
 			files = (
 				823E91EA2BC08C3200B8F31D /* MainViewController.swift in Sources */,
 				823E91D42BC08B9400B8F31D /* AppDelegate.swift in Sources */,
+				3FAEE7BF2BCE7FEC007204D2 /* DetailModuleConfigurator.swift in Sources */,
 				82F9FB7A2BC3FCE300C95BD7 /* UIImageLoader.swift in Sources */,
 				82F9FB692BC09A1500C95BD7 /* Cat.swift in Sources */,
 				82F9FB862BC43ACC00C95BD7 /* CatInfo.swift in Sources */,
+				3FAEE7BC2BCE7BF8007204D2 /* MainModuleConfigurator.swift in Sources */,
 				82F9FB842BC43AB900C95BD7 /* DetailPresenter.swift in Sources */,
 				823E91D62BC08B9400B8F31D /* SceneDelegate.swift in Sources */,
 				82F9FB782BC3F94800C95BD7 /* ImageLoader.swift in Sources */,

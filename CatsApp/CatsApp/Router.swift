@@ -25,13 +25,18 @@ class Router: RouterProtocol {
     }
     
     func initialViewController() {
+        let configurator = MainModuleConfigurator()
         if let navigationController = navigationController {
-            guard let mainViewController = assemblyBuilder?.createMainModule(router: self) else { return }
+            //guard let mainViewController =
+              //      configurator.createMainModule(router: self)
+                    //assemblyBuilder?.createMainModule(router: self) else { return }
+            let mainViewController = configurator.createMainModule(router: self)
             navigationController.viewControllers = [mainViewController]
         }
     }
     
     func showDetail(cat: Cat?) {
+        let configurator = DetailModuleConfigurator()
         if let navigationController = navigationController {
             guard let detailViewController = assemblyBuilder?.createDetailModule(cat: cat, router: self) else { return }
             navigationController.pushViewController(detailViewController, animated: true)
