@@ -27,6 +27,7 @@ class DetailPresenter: DetailViewPresenterProtocol {
     var router: RouterProtocol?
     var cat: Cat?
     var catInfo: CatInfo?
+    let configurator = DetailModuleConfigurator()
     
     required init(view: DetailViewProtocol, networkService: NetworkService, cat: Cat?) {
         self.view = view
@@ -53,4 +54,13 @@ class DetailPresenter: DetailViewPresenterProtocol {
             }
         }
     }
+}
+
+extension DetailPresenter: DetailModuleInput {
+    
+    func configureModule(cat: Cat) {
+        configurator.createDetailModule(cat: cat)
+    }
+    
+    
 }

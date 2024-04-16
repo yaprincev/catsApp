@@ -38,7 +38,7 @@ class MainPresenter: MainViewPresenterProtocol {
     }
     
     func tapOnTheCat(cat: Cat?) {
-        router?.navigateToDetail()
+        router?.navigateToDetail(cat: cat)
         //detailModule?.configureModule(cat: cat)
     }
     

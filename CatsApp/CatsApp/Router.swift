@@ -12,7 +12,7 @@ protocol RouterProtocol {
     var assemblyBuilder: AssemblyBuilderProtocol? { get set }
     var navigationController: UINavigationController? { get set }
     func initialViewController()
-    //func showDetail(cat: Cat?)
+   // func showDetail(cat: Cat?)
 }
 
 class Router: RouterProtocol {

@@ -10,3 +10,5 @@ import Foundation
 protocol DetailModuleInput {
     func configureModule(cat: Cat)
 }
+
+

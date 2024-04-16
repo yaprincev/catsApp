@@ -17,11 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         let navigationController = UINavigationController()
-        let assemblyBuilder = AssemblyBuilder()
-        let router = Router(navigationController: navigationController, assemblyBuilder: assemblyBuilder)
-        router.initialViewController()
+        let mainConfigurator = MainModuleConfigurator()
+        let mainView = mainConfigurator.createMainModule()
+      //  let assemblyBuilder = AssemblyBuilder()
+     //   let router = Router(navigationController: navigationController, assemblyBuilder: assemblyBuilder)
+        //router.initialViewController()
         
-        window?.rootViewController = navigationController
+        window?.rootViewController = mainView
         window?.makeKeyAndVisible()
         
     }
