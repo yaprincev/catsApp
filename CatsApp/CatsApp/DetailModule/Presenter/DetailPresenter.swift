@@ -24,7 +24,7 @@ protocol DetailViewPresenterProtocol: AnyObject {
 class DetailPresenter: DetailViewPresenterProtocol {
     weak var view: DetailViewProtocol?
     let networkService: NetworkServiceProtocol!
-    var router: RouterProtocol?
+    //var router: RouterProtocol?
     var cat: Cat?
     var catInfo: CatInfo?
     let configurator = DetailModuleConfigurator()
@@ -56,11 +56,4 @@ class DetailPresenter: DetailViewPresenterProtocol {
     }
 }
 
-extension DetailPresenter: DetailModuleInput {
-    
-    func configureModule(cat: Cat) {
-        configurator.createDetailModule(cat: cat)
-    }
-    
-    
-}
+

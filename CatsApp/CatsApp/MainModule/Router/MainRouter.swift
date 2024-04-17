@@ -6,17 +6,18 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MainRouterInput {
     func navigateToDetail(cat: Cat?)
 }
 
 class MainRouter: MainRouterInput {
-    let view = MainViewController()
-    let detailConfigurator = DetailModuleConfigurator()
+
+    weak var view: ModuleTransitionable?
     
     func navigateToDetail(cat: Cat?) {
-        let detailView = detailConfigurator.createDetailModule(cat: cat)
-        view.push(module: detailView, animated: true)
+        let detailView = DetailModuleConfigurator().createDetailModule(cat: cat)
+        view?.push(module: detailView, animated: true)
     }
 }

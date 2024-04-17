@@ -28,7 +28,7 @@ class MainPresenter: MainViewPresenterProtocol {
     var router: MainRouter?
     let networkService: NetworkServiceProtocol!
     var cats: [Cat]?
-    var detailModule: DetailModuleInput?
+    
     
     required init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: MainRouter) {
         self.view = view

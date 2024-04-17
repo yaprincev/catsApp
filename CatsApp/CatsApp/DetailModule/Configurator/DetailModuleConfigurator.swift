@@ -13,6 +13,8 @@ class DetailModuleConfigurator {
     func createDetailModule(cat: Cat?) -> UIViewController {
         let view = DetailViewController()
         let networkService = NetworkService()
+        let router = DetailRouter()
+        router.view = view
         let presenter = DetailPresenter(view: view, networkService: networkService, cat: cat)
         view.presenter = presenter
         return view
