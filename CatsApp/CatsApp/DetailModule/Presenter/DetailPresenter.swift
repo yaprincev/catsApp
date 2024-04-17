@@ -16,7 +16,7 @@ protocol DetailViewProtocol: AnyObject {
 // MARK: - Input
 
 protocol DetailViewPresenterProtocol: AnyObject {
-    init(view: DetailViewProtocol, networkService: NetworkService, cat: Cat?)
+    init(view: DetailViewProtocol, networkService: NetworkService, cat: CatEntity?)
     func setCat()
     var catInfo: CatInfo? { get set }
 }
@@ -25,11 +25,11 @@ class DetailPresenter: DetailViewPresenterProtocol {
     weak var view: DetailViewProtocol?
     let networkService: NetworkServiceProtocol!
     //var router: RouterProtocol?
-    var cat: Cat?
+    var cat: CatEntity?
     var catInfo: CatInfo?
     let configurator = DetailModuleConfigurator()
     
-    required init(view: DetailViewProtocol, networkService: NetworkService, cat: Cat?) {
+    required init(view: DetailViewProtocol, networkService: NetworkService, cat: CatEntity?) {
         self.view = view
         self.networkService = networkService
         //self.router = router

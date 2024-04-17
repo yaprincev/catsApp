@@ -9,9 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController, ModuleTransitionable {
     
-    // MARK: - View
-    
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet weak var catsTable: UITableView!
     
     // MARK: - Presenter
     
@@ -28,27 +26,27 @@ class MainViewController: UIViewController, ModuleTransitionable {
 
 
 extension MainViewController: MainViewProtocol {
-    func success() {
+    func setupInitialState() {
         DispatchQueue.main.async {
-            self.collectionView.reloadData()
+            self.catsTable.reloadData()
         }
     }
     
-    func failure(error: Error) {
+    func setupErrorState(error: Error) {
         showError(error: error)
     }
 }
 
 // MARK: - Private methods
-
 private extension MainViewController {
     func configureAppearence() {
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-        collectionView.isScrollEnabled = true
-        collectionView.contentInset = .init(top: 10, left: 10, bottom: 10, right: 16)
+        catsTable.dataSource = self
+        catsTable.delegate = self
+        catsTable.register(UINib(nibName: "\(CustomTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "\(CustomTableViewCell.self)")
+        catsTable.separatorStyle = .none
+
     }
+    
     func setUpImageView(imageView: UIImageView) {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -75,48 +73,38 @@ private extension MainViewController {
 
 // MARK: - UICollectionView
 
-extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.cats?.count ?? 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        
-        for subview in cell.contentView.subviews {
-            if let imageView = subview as? UIImageView {
-                imageView.image = nil
-            }
-        }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "\(CustomTableViewCell.self)", for: indexPath)
         
         let activityIndicator = UIActivityIndicatorView(style: .medium)
-        activityIndicator.center = cell.contentView.center
-        cell.contentView.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-        
+            activityIndicator.center = cell.contentView.center
+            cell.contentView.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
         
         
         guard let imageUrlString = presenter.cats?[indexPath.row].url,
-                let imageUrl = URL(string: imageUrlString) else {
+            let imageUrl = URL(string: imageUrlString) else {
             return cell
         }
             
-        let imageView = UIImageView(frame: cell.contentView.bounds)
-        setUpImageView(imageView: imageView)
-        imageView.loadImage(from: imageUrl)
-        cell.contentView.addSubview(imageView)
-            
-        
+        if let cell = cell as? CustomTableViewCell {
+            cell.photoURL = imageUrl
+        }
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width - 30, height: view.frame.width - 20 * 1.5)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return view.bounds.height / 2
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.tapOnTheCat(cat: presenter.cats?[indexPath.row])
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
+    
 }
-
-

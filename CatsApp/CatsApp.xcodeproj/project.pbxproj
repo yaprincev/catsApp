@@ -10,6 +10,8 @@
 		3F8BC96D2BCD3ADE0018489B /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BC96C2BCD3ADE0018489B /* NetworkConfiguration.swift */; };
 		3F8BC9712BCD3C460018489B /* URLStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BC9702BCD3C460018489B /* URLStorage.swift */; };
 		3F972F562BCFDDD800B73052 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F972F552BCFDDD800B73052 /* DetailRouter.swift */; };
+		3F972F662BCFF6E600B73052 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F972F642BCFF6E600B73052 /* CustomTableViewCell.swift */; };
+		3F972F672BCFF6E600B73052 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F972F652BCFF6E600B73052 /* CustomTableViewCell.xib */; };
 		3FAEE7BC2BCE7BF8007204D2 /* MainModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEE7BB2BCE7BF8007204D2 /* MainModuleConfigurator.swift */; };
 		3FAEE7BF2BCE7FEC007204D2 /* DetailModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEE7BE2BCE7FEC007204D2 /* DetailModuleConfigurator.swift */; };
 		3FAEE7C42BCE87F5007204D2 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEE7C32BCE87F5007204D2 /* MainRouter.swift */; };
@@ -36,6 +38,8 @@
 		3F8BC96C2BCD3ADE0018489B /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
 		3F8BC9702BCD3C460018489B /* URLStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStorage.swift; sourceTree = "<group>"; };
 		3F972F552BCFDDD800B73052 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
+		3F972F642BCFF6E600B73052 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		3F972F652BCFF6E600B73052 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		3FAEE7BB2BCE7BF8007204D2 /* MainModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleConfigurator.swift; sourceTree = "<group>"; };
 		3FAEE7BE2BCE7FEC007204D2 /* DetailModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModuleConfigurator.swift; sourceTree = "<group>"; };
 		3FAEE7C32BCE87F5007204D2 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
@@ -77,6 +81,15 @@
 				3F972F552BCFDDD800B73052 /* DetailRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		3F972F5B2BCFE1BB00B73052 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3F972F642BCFF6E600B73052 /* CustomTableViewCell.swift */,
+				3F972F652BCFF6E600B73052 /* CustomTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		3FAEE7BA2BCE7BCE007204D2 /* Configurator */ = {
@@ -159,6 +172,7 @@
 		82F9FB632BC0955C00C95BD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F972F5B2BCFE1BB00B73052 /* Cell */,
 				823E91E82BC08C3200B8F31D /* MainViewController.swift */,
 				823E91E92BC08C3200B8F31D /* MainViewController.xib */,
 			);
@@ -299,6 +313,7 @@
 				823E91E02BC08B9900B8F31D /* LaunchScreen.storyboard in Resources */,
 				823E91EB2BC08C3200B8F31D /* MainViewController.xib in Resources */,
 				823E91DD2BC08B9900B8F31D /* Assets.xcassets in Resources */,
+				3F972F672BCFF6E600B73052 /* CustomTableViewCell.xib in Resources */,
 				82F9FB822BC43A9B00C95BD7 /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +331,7 @@
 				3FAEE7BF2BCE7FEC007204D2 /* DetailModuleConfigurator.swift in Sources */,
 				82F9FB7A2BC3FCE300C95BD7 /* UIImageLoader.swift in Sources */,
 				82F9FB692BC09A1500C95BD7 /* Cat.swift in Sources */,
+				3F972F662BCFF6E600B73052 /* CustomTableViewCell.swift in Sources */,
 				82F9FB862BC43ACC00C95BD7 /* CatInfo.swift in Sources */,
 				3FAEE7BC2BCE7BF8007204D2 /* MainModuleConfigurator.swift in Sources */,
 				82F9FB842BC43AB900C95BD7 /* DetailPresenter.swift in Sources */,

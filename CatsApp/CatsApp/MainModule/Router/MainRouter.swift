@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 protocol MainRouterInput {
-    func navigateToDetail(cat: Cat?)
+    func navigateToDetail(cat: CatEntity?)
 }
 
 class MainRouter: MainRouterInput {
 
     weak var view: ModuleTransitionable?
     
-    func navigateToDetail(cat: Cat?) {
+    func navigateToDetail(cat: CatEntity?) {
         let detailView = DetailModuleConfigurator().createDetailModule(cat: cat)
         view?.push(module: detailView, animated: true)
     }
