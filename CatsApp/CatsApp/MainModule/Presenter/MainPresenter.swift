@@ -41,7 +41,6 @@ class MainPresenter: MainViewPresenterProtocol {
     
     func catsImageDidTap(cat: CatEntity?) {
         router?.navigateToDetail(cat: cat)
-        //detailModule?.configureModule(cat: cat)
     }
     
     func viewWasLoaded() {

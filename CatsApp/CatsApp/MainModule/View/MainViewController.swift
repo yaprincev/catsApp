@@ -14,7 +14,6 @@ class MainViewController: UIViewController, ModuleTransitionable {
     // MARK: - Presenter
     
     var presenter: MainViewPresenterProtocol!
-    
     private var errorLabel = UILabel()
     private var catsModel: [CatEntity]?
     
@@ -26,8 +25,6 @@ class MainViewController: UIViewController, ModuleTransitionable {
         presenter.viewWasLoaded()
     }
 }
-
-// MARK: - Input protocol
 
 extension MainViewController: MainViewProtocol {
     
@@ -45,8 +42,6 @@ extension MainViewController: MainViewProtocol {
 }
 
 // MARK: - Private methods
-
-
 private extension MainViewController {
     func configureAppearence() {
         catsTable.dataSource = self
@@ -57,19 +52,20 @@ private extension MainViewController {
     }
     
     func showError(error: Error) {
-       
-        view.addSubview(self.errorLabel)
-        errorLabel.text = error.localizedDescription
-        errorLabel.numberOfLines = 0
-        errorLabel.textAlignment = .center
-        errorLabel.translatesAutoresizingMaskIntoConstraints = false
+        DispatchQueue.main.async {
+            self.view.addSubview(self.errorLabel)
+            self.errorLabel.text = error.localizedDescription
+            self.errorLabel.numberOfLines = 0
+            self.errorLabel.textAlignment = .center
+            self.errorLabel.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-        errorLabel.topAnchor.constraint(equalTo: self.view.topAnchor),
-        errorLabel.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 35),
-        errorLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
-        errorLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
+                self.errorLabel.topAnchor.constraint(equalTo: self.view.topAnchor),
+                self.errorLabel.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 35),
+                self.errorLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
+                self.errorLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
             ])
-        errorLabel.backgroundColor = .red
+            self.errorLabel.backgroundColor = .red
+        }
     }
 }
 
@@ -88,15 +84,9 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             activityIndicator.center = cell.contentView.center
             cell.contentView.addSubview(activityIndicator)
             activityIndicator.startAnimating()
-        
-        
-        guard let imageUrlString = self.catsModel?[indexPath.row].url,
-            let imageUrl = URL(string: imageUrlString) else {
-            return cell
-        }
-            
+    
         if let cell = cell as? CustomTableViewCell {
-            cell.photoURL = imageUrl
+            cell.setPhoto(catModel: self.catsModel?[indexPath.row])
         }
         return cell
     }

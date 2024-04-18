@@ -11,12 +11,6 @@ class CustomTableViewCell: UITableViewCell {
     
     @IBOutlet weak var catsImage: UIImageView!
     
-    var photoURL: URL! {
-        didSet {
-            setPhoto(url: photoURL)
-        }
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         configureAppearence()
@@ -30,14 +24,16 @@ class CustomTableViewCell: UITableViewCell {
     
 }
 
-private extension CustomTableViewCell {
+extension CustomTableViewCell {
     
     func configureAppearence() {
         catsImage.layer.cornerRadius = 15
         catsImage.contentMode = .scaleAspectFill
         catsImage.translatesAutoresizingMaskIntoConstraints = false
     }
-    func setPhoto(url: URL) {
+    func setPhoto(catModel: CatEntity?) {
+        guard let cat = catModel else { return }
+        guard let url = URL(string: cat.url) else { return }
         catsImage.loadImage(from: url)
         self.contentView.addSubview(catsImage)
     }
