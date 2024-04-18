@@ -26,6 +26,8 @@ class MainViewController: UIViewController, ModuleTransitionable {
         presenter.viewWasLoaded()
     }
     
+    // MARK: - Actions
+    
     @objc func refreshButtonWasTapped() {
         errorLabel.removeFromSuperview()
         presenter.getCats()
