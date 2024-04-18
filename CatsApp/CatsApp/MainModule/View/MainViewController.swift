@@ -15,6 +15,7 @@ class MainViewController: UIViewController, ModuleTransitionable {
     
     var presenter: MainViewPresenterProtocol!
     private var errorLabel = UILabel()
+    private var refreshButton = UIButton()
     private var catsModel: [CatEntity]?
     
     // MARK: - UIViewController
@@ -23,6 +24,12 @@ class MainViewController: UIViewController, ModuleTransitionable {
         super.viewDidLoad()
         configureAppearence()
         presenter.viewWasLoaded()
+    }
+    
+    @objc func refreshButtonWasTapped() {
+        errorLabel.removeFromSuperview()
+        presenter.getCats()
+        
     }
 }
 
@@ -65,7 +72,25 @@ private extension MainViewController {
                 self.errorLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
             ])
             self.errorLabel.backgroundColor = .red
+            self.configureRefreshButton()
         }
+    }
+    
+    func configureRefreshButton() {
+        view.addSubview(refreshButton)
+        refreshButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            refreshButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            refreshButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+            refreshButton.widthAnchor.constraint(equalToConstant: 200),
+            refreshButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        refreshButton.setTitle("Pull to refresh", for: .normal)
+        refreshButton.setTitleColor(.black, for: .normal)
+        
+        refreshButton.addTarget(self, action: #selector(refreshButtonWasTapped), for: .touchUpInside)
+        
     }
 }
 
@@ -100,3 +125,4 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
 }
+
