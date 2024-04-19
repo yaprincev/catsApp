@@ -9,6 +9,8 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
     
+    // MARK: - View
+    
     @IBOutlet weak var catsImage: UIImageView!
     
     override func awakeFromNib() {

@@ -38,6 +38,8 @@ class MainViewController: UIViewController, ModuleTransitionable {
     }
 }
 
+// MARK: - View input
+
 extension MainViewController: MainViewProtocol {
     
     func setupInitialState(cats: [CatEntity]?) {
@@ -54,6 +56,8 @@ extension MainViewController: MainViewProtocol {
 }
 
 // MARK: - Private methods
+
+
 private extension MainViewController {
     func configureAppearence() {
         catsTable.dataSource = self
