@@ -9,13 +9,16 @@ import UIKit
 
 class MainViewController: UIViewController, ModuleTransitionable {
     
+    // MARK: - Views
+    
     @IBOutlet weak var catsTable: UITableView!
+    private var errorLabel = UILabel()
+    private var refreshButton = UIButton()
+    
     
     // MARK: - Presenter
     
     var presenter: MainViewPresenterProtocol!
-    private var errorLabel = UILabel()
-    private var refreshButton = UIButton()
     private var catsModel: [CatEntity]?
     
     // MARK: - UIViewController
