@@ -14,7 +14,6 @@ protocol BaseURLStorage {
 enum URLStorage {
     case idCatURL
     case imageCatURL
-    
     var url: URL? {
         switch self {
         case .idCatURL:

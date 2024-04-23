@@ -10,7 +10,7 @@ import UIKit
 
 
 class DetailModuleConfigurator {
-    func createDetailModule(cat: CatEntity?) -> UIViewController {
+    func createDetailModule(cat: CatModel?) -> UIViewController {
         let view = DetailViewController()
         let networkService = NetworkService()
         let router = DetailRouter()

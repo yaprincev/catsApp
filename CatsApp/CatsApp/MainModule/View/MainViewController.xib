@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +11,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="CatsApp" customModuleProvider="target">
             <connections>
                 <outlet property="catsTable" destination="UFh-i1-uqC" id="BNU-nh-bF6"/>
+                <outlet property="errorLabel" destination="oHo-rN-QR0" id="Zrs-kw-fOp"/>
+                <outlet property="errorView" destination="5aL-qu-h74" id="AkV-Uc-jev"/>
+                <outlet property="refreshButton" destination="J4q-HE-Ksw" id="mKy-0v-gs2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,14 +26,52 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aL-qu-h74">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHo-rN-QR0">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="130"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="130" id="V5r-R1-eZ9"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4q-HE-Ksw">
+                            <rect key="frame" x="96.666666666666686" y="384" width="200" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="7si-1E-SY9"/>
+                                <constraint firstAttribute="height" constant="50" id="mZW-aL-nrh"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            <connections>
+                                <action selector="refreshButtonWasTapped:" destination="-1" eventType="touchUpInside" id="UVX-hw-phZ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="J4q-HE-Ksw" firstAttribute="centerY" secondItem="5aL-qu-h74" secondAttribute="centerY" id="1Ad-Wq-fmI"/>
+                        <constraint firstAttribute="trailing" secondItem="oHo-rN-QR0" secondAttribute="trailing" id="8tt-C6-x1J"/>
+                        <constraint firstItem="oHo-rN-QR0" firstAttribute="leading" secondItem="5aL-qu-h74" secondAttribute="leading" id="A69-XD-kSQ"/>
+                        <constraint firstItem="oHo-rN-QR0" firstAttribute="top" secondItem="5aL-qu-h74" secondAttribute="top" id="fBk-hu-E7f"/>
+                        <constraint firstItem="J4q-HE-Ksw" firstAttribute="centerX" secondItem="5aL-qu-h74" secondAttribute="centerX" id="kWF-kO-cYV"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UFh-i1-uqC" secondAttribute="trailing" id="0SE-tq-xxk"/>
                 <constraint firstItem="UFh-i1-uqC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Pz1-f3-wXp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5aL-qu-h74" secondAttribute="trailing" id="Wua-LV-ENh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5aL-qu-h74" secondAttribute="bottom" id="a9b-EG-VnD"/>
+                <constraint firstItem="5aL-qu-h74" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aDh-xx-MN8"/>
                 <constraint firstItem="UFh-i1-uqC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gJ2-I7-0Uc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="UFh-i1-uqC" secondAttribute="bottom" id="oIM-IM-eDx"/>
+                <constraint firstItem="5aL-qu-h74" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ugf-36-LKa"/>
             </constraints>
             <point key="canvasLocation" x="57.251908396946561" y="20.422535211267608"/>
         </view>

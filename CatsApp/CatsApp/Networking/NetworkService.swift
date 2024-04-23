@@ -14,6 +14,7 @@ protocol NetworkServiceProtocol {
 
 
 class NetworkService: NetworkConfiguration, NetworkServiceProtocol {
+    
     func getInfo <T: Decodable>(forURL url: URL?, id: String?, model: T.Type ,completion: @escaping (Result<T, Error>) -> Void) {
         let id = id ?? ""
         guard var url = url else { return }
@@ -31,4 +32,5 @@ class NetworkService: NetworkConfiguration, NetworkServiceProtocol {
             }
         }.resume()
     }
+    
 }

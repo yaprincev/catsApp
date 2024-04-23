@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
-class MainModuleConfigurator {
+final class MainModuleConfigurator {
     func createMainModule() -> UIViewController {
         let view = MainViewController()
         let router = MainRouter()
         router.view = view
         let networkService = NetworkService()
         let presenter = MainPresenter(view: view, networkService: networkService, router: router)
-        view.presenter = presenter
+        view.output = presenter
         return view
     }
 }

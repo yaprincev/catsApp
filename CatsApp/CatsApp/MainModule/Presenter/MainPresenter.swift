@@ -7,39 +7,21 @@
 
 import Foundation
 
-// MARK: - Input
-
-protocol MainViewProtocol: AnyObject {
-    func setupInitialState(cats: [CatEntity]?)
-    func setupErrorState(error: Error)
-}
-
-// MARK: - Output
-
-protocol MainViewPresenterProtocol: AnyObject {
-    init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: MainRouter)
-    func getCats()
-    func catsImageDidTap(cat: CatEntity?)
-    func viewWasLoaded()
-    var cats: [CatEntity]? { get set }
-}
-
 //  MARK: - Output protocol
 
-class MainPresenter: MainViewPresenterProtocol {
-    weak var view: MainViewProtocol?
+final class MainPresenter: MainViewOutput {
+    weak var view: MainViewInput?
     var router: MainRouter?
-    let networkService: NetworkServiceProtocol!
-    var cats: [CatEntity]?
+    let networkService: NetworkServiceProtocol?
+    var cats: [CatModel] = []
     
-    
-    required init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: MainRouter) {
+    required init(view: MainViewInput, networkService: NetworkServiceProtocol, router: MainRouter) {
         self.view = view
         self.networkService = networkService
         self.router = router
     }
     
-    func catsImageDidTap(cat: CatEntity?) {
+    func catsImageDidTap(cat: CatModel?) {
         router?.navigateToDetail(cat: cat)
     }
     
@@ -47,17 +29,21 @@ class MainPresenter: MainViewPresenterProtocol {
         getCats()
     }
     
-    
     func getCats() {
-        networkService.getInfo(forURL: URLStorage.imageCatURL.url, id: nil, model: [CatEntity].self) { [weak self] result in
+        networkService?.getInfo(forURL: URLStorage.imageCatURL.url, id: nil, model: [CatEntity].self) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let cats):
-                self.cats = cats
-                self.view?.setupInitialState(cats: cats)
+                for cat in cats {
+                    let catModel = CatModel(cat: cat)
+                    self.cats.append(catModel)
+                }
+                
+                self.view?.setupInitialState(cats: self.cats)
             case .failure(let error):
                 self.view?.setupErrorState(error: error)
             }
         }
     }
+    
 }

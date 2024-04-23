@@ -7,9 +7,9 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+final class CustomMainTableViewCell: UITableViewCell {
     
-    // MARK: - View
+    // MARK: - Outlets
     
     @IBOutlet weak var catsImage: UIImageView!
     
@@ -17,26 +17,22 @@ class CustomTableViewCell: UITableViewCell {
         super.awakeFromNib()
         configureAppearence()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
 }
 
-extension CustomTableViewCell {
+extension CustomMainTableViewCell {
     
     func configureAppearence() {
         catsImage.layer.cornerRadius = 15
         catsImage.contentMode = .scaleAspectFill
         catsImage.translatesAutoresizingMaskIntoConstraints = false
     }
-    func setPhoto(catModel: CatEntity?) {
+    
+    func setPhoto(catModel: CatModel?) {
         guard let cat = catModel else { return }
-        guard let url = URL(string: cat.url) else { return }
+        guard let url = cat.url else { return }
         catsImage.loadImage(from: url)
         self.contentView.addSubview(catsImage)
     }
+    
 }
