@@ -7,9 +7,9 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, ModuleTransitionable {
+final class DetailViewController: UIViewController, ModuleTransitionable {
 
-    // MARK: - Views
+    // MARK: - Outlets
     
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var originLabel: UILabel!
@@ -17,19 +17,19 @@ class DetailViewController: UIViewController, ModuleTransitionable {
     
     // MARK: - Presenter
     
-    var presenter: DetailViewPresenterProtocol!
+    var output: DetailViewOutput?
     
     // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.setCat()
+        output?.viewWasLoaded()
     }
 }
 
+// MARK: - View input
 
-
-extension DetailViewController: DetailViewProtocol {
+extension DetailViewController: DetailViewInput {
     func setCat(catInfo: CatInfo?) {
         DispatchQueue.main.async {
             self.nameLabel.text = catInfo?.breeds.first?.name

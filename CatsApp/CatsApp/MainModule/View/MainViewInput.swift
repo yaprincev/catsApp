@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - View input
+// MARK: - Input protocol
 
 protocol MainViewInput: AnyObject {
     func setupInitialState(cats: [CatModel]?)

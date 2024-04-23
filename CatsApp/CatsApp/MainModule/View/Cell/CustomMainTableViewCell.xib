@@ -19,16 +19,22 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KCY-A8-GMJ">
                         <rect key="frame" x="15" y="15" width="290" height="264"/>
                     </imageView>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ajW-DM-mrw">
+                        <rect key="frame" x="150" y="137" width="20" height="20"/>
+                    </activityIndicatorView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="KCY-A8-GMJ" secondAttribute="trailing" constant="15" id="PA0-w4-FTB"/>
                     <constraint firstAttribute="bottom" secondItem="KCY-A8-GMJ" secondAttribute="bottom" constant="15" id="eKP-2k-6rh"/>
+                    <constraint firstItem="ajW-DM-mrw" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="euJ-Xj-hQx"/>
+                    <constraint firstItem="ajW-DM-mrw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gZo-Ck-Ke7"/>
                     <constraint firstItem="KCY-A8-GMJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="rxF-Kh-UPf"/>
                     <constraint firstItem="KCY-A8-GMJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="ypP-tf-ldg"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="activityIndicator" destination="ajW-DM-mrw" id="9x5-VO-3ZL"/>
                 <outlet property="catsImage" destination="KCY-A8-GMJ" id="40q-hj-xUn"/>
             </connections>
             <point key="canvasLocation" x="25.954198473282442" y="76.760563380281695"/>

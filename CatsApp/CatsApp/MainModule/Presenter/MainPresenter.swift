@@ -7,27 +7,25 @@
 
 import Foundation
 
-//  MARK: - Output protocol
+// MARK: - Presenter
 
-final class MainPresenter: MainViewOutput {
+final class MainPresenter {
     weak var view: MainViewInput?
     var router: MainRouter?
     let networkService: NetworkServiceProtocol?
     var cats: [CatModel] = []
     
-    required init(view: MainViewInput, networkService: NetworkServiceProtocol, router: MainRouter) {
+    init(view: MainViewInput, networkService: NetworkServiceProtocol, router: MainRouter) {
         self.view = view
         self.networkService = networkService
         self.router = router
     }
     
-    func catsImageDidTap(cat: CatModel?) {
-        router?.navigateToDetail(cat: cat)
-    }
-    
-    func viewWasLoaded() {
-        getCats()
-    }
+}
+
+//  MARK: - View output
+
+extension MainPresenter: MainViewOutput {
     
     func getCats() {
         networkService?.getInfo(forURL: URLStorage.imageCatURL.url, id: nil, model: [CatEntity].self) { [weak self] result in
@@ -44,6 +42,14 @@ final class MainPresenter: MainViewOutput {
                 self.view?.setupErrorState(error: error)
             }
         }
+    }
+    
+    func catImageDidTap(cat: CatModel?) {
+        router?.navigateToDetail(cat: cat)
+    }
+    
+    func viewWasLoaded() {
+        getCats()
     }
     
 }

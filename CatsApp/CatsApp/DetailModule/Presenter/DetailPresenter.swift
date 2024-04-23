@@ -7,43 +7,23 @@
 
 import Foundation
 
-// MARK: - Output
+// MARK: - Presenter
 
-protocol DetailViewProtocol: AnyObject {
-    func setCat(catInfo: CatInfo?)
-}
-
-// MARK: - Input
-
-protocol DetailViewPresenterProtocol: AnyObject {
-    init(view: DetailViewProtocol, networkService: NetworkService, cat: CatModel?)
-    func setCat()
-    var catInfo: CatInfo? { get set }
-}
-
-class DetailPresenter: DetailViewPresenterProtocol {
-    weak var view: DetailViewProtocol?
-    let networkService: NetworkServiceProtocol!
-    //var router: RouterProtocol?
+final class DetailPresenter {
+    weak var view: DetailViewInput?
+    let networkService: NetworkServiceProtocol?
     var cat: CatModel?
     var catInfo: CatInfo?
     let configurator = DetailModuleConfigurator()
     
-    required init(view: DetailViewProtocol, networkService: NetworkService, cat: CatModel?) {
+    init(view: DetailViewInput, networkService: NetworkService, cat: CatModel?) {
         self.view = view
         self.networkService = networkService
-        //self.router = router
         self.cat = cat
-        getCatInfo()
-        
-    }
-    
-    func setCat() {
-        self.view?.setCat(catInfo: catInfo)
     }
     
     func getCatInfo() {
-        networkService.getInfo(forURL: URLStorage.idCatURL.url, id: cat?.id, model: CatInfo.self) { [weak self] result in
+        networkService?.getInfo(forURL: URLStorage.idCatURL.url, id: cat?.id, model: CatInfo.self) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let catInfo):
@@ -54,6 +34,21 @@ class DetailPresenter: DetailViewPresenterProtocol {
             }
         }
     }
+    
+}
+
+//  MARK: - View output
+
+extension DetailPresenter: DetailViewOutput {
+    
+    func setCat() {
+        self.view?.setCat(catInfo: catInfo)
+    }
+    
+    func viewWasLoaded() {
+        getCatInfo()
+    }
+    
 }
 
 

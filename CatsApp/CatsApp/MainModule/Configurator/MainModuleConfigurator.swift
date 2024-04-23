@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 final class MainModuleConfigurator {
+    
     func createMainModule() -> UIViewController {
         let view = MainViewController()
         let router = MainRouter()
@@ -18,4 +19,5 @@ final class MainModuleConfigurator {
         view.output = presenter
         return view
     }
+    
 }

@@ -7,12 +7,6 @@
 
 import Foundation
 
-protocol DetailRouterInput {
-    
-}
-
-class DetailRouter: DetailRouterInput {
-    
+final class DetailRouter: DetailRouterInput {
     weak var view: ModuleTransitionable?
-    
 }

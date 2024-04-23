@@ -96,10 +96,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(CustomMainTableViewCell.self)", for: indexPath)
-        let activityIndicator = UIActivityIndicatorView(style: .medium)
-            activityIndicator.center = cell.contentView.center
-            cell.contentView.addSubview(activityIndicator)
-            activityIndicator.startAnimating()
         if let cell = cell as? CustomMainTableViewCell {
             cell.setPhoto(catModel: self.catsModel?[indexPath.row])
         }
@@ -111,7 +107,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        output?.catsImageDidTap(cat: catsModel?[indexPath.row])
+        output?.catImageDidTap(cat: catsModel?[safe: indexPath.row])
     }
     
 }
