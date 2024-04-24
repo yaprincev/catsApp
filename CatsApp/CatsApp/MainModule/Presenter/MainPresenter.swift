@@ -36,7 +36,6 @@ extension MainPresenter: MainViewOutput {
                     let catModel = CatModel(cat: cat)
                     self.cats.append(catModel)
                 }
-                
                 self.view?.setupInitialState(cats: self.cats)
             case .failure(let error):
                 self.view?.setupErrorState(error: error)
