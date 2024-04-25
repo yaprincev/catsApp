@@ -12,8 +12,13 @@ import Foundation
 final class MainPresenter {
     weak var view: MainViewInput?
     var router: MainRouter?
-    let networkService: NetworkServiceProtocol?
-    var cats: [CatModel] = []
+    
+    // MARK: - Private properties
+    
+    private let networkService: NetworkServiceProtocol?
+    private var cats: [CatModel] = []
+    
+    // MARK: - Init
     
     init(view: MainViewInput, networkService: NetworkServiceProtocol, router: MainRouter) {
         self.view = view
@@ -23,9 +28,9 @@ final class MainPresenter {
     
 }
 
-//  MARK: - View output
+// MARK: - Private methods
 
-extension MainPresenter: MainViewOutput {
+private extension MainPresenter {
     
     func getCats() {
         networkService?.getInfo(forURL: URLStorage.imageCatURL.url, id: nil, model: [CatEntity].self) { [weak self] result in
@@ -43,7 +48,17 @@ extension MainPresenter: MainViewOutput {
         }
     }
     
-    func catImageDidTap(cat: CatModel?) {
+}
+
+// MARK: - View output
+
+extension MainPresenter: MainViewOutput {
+    
+    func refreshData() {
+        getCats()
+    }
+    
+    func imageDidTap(cat: CatModel?) {
         router?.navigateToDetail(cat: cat)
     }
     

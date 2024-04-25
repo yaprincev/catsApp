@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Main router input protocol
+
 protocol MainRouterInput {
     func navigateToDetail(cat: CatModel?)
 }

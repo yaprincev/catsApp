@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Detail router input protocol
+
 protocol DetailRouterInput {
     
 }

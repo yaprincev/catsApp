@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Entity model
+
 struct CatEntity: Codable {
     var id: String
     var url: String

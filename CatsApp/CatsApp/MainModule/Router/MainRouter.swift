@@ -8,12 +8,14 @@
 import Foundation
 import UIKit
 
+// MARK: - Main router
+
 final class MainRouter: MainRouterInput {
     weak var view: ModuleTransitionable?
     
     func navigateToDetail(cat: CatModel?) {
-        let detailView = DetailModuleConfigurator().createDetailModule(cat: cat)
-        view?.push(module: detailView, animated: true)
+        let detailViewController = DetailModuleConfigurator().createDetailModule(cat: cat)
+        view?.push(module: detailViewController, animated: true)
     }
     
 }

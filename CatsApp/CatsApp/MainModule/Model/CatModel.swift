@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Cat model
+
 struct CatModel {
     var id: String
     var url: URL?

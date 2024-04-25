@@ -11,14 +11,14 @@ final class MainViewController: UIViewController, ModuleTransitionable {
 
     // MARK: - Outlets
     
-    @IBOutlet weak var refreshButton: UIButton!
-    @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var errorView: UIView!
-    @IBOutlet weak var catsTable: UITableView!
+    @IBOutlet private weak var refreshButton: UIButton!
+    @IBOutlet private weak var errorLabel: UILabel!
+    @IBOutlet private weak var errorView: UIView!
+    @IBOutlet private weak var imageTable: UITableView!
     
     // MARK: - Private properties
     
-    private var catsModel: [CatModel]?
+    private var models: [CatModel]?
     
     // MARK: - View output
     
@@ -36,7 +36,7 @@ final class MainViewController: UIViewController, ModuleTransitionable {
 
     @IBAction func refreshButtonWasTapped(_ sender: Any) {
         errorView.isHidden = true
-        output?.getCats()
+        output?.refreshData()
     }
     
 }
@@ -46,9 +46,9 @@ final class MainViewController: UIViewController, ModuleTransitionable {
 extension MainViewController: MainViewInput {
     
     func setupInitialState(cats: [CatModel]?) {
-        catsModel = cats
+        models = cats
         DispatchQueue.main.async {
-            self.catsTable.reloadData()
+            self.imageTable.reloadData()
         }
     }
     
@@ -63,20 +63,19 @@ extension MainViewController: MainViewInput {
 private extension MainViewController {
     
     func configureAppearence() {
-        catsTable.dataSource = self
-        catsTable.delegate = self
-        catsTable.register(cell: CustomMainTableViewCell.self)
-        catsTable.separatorStyle = .none
+        imageTable.dataSource = self
+        imageTable.delegate = self
+        imageTable.register(cell: CustomMainTableViewCell.self)
+        imageTable.separatorStyle = .none
         errorView.isHidden = true
     }
     
     func showError(error: Error) {
-        DispatchQueue.main.async {
-            self.errorView.isHidden = false
-            self.errorLabel.text = error.localizedDescription
-            self.errorLabel.backgroundColor = .red
-            self.configureRefreshButton()
-        }
+        errorView.isHidden = false
+        errorLabel.text = error.localizedDescription
+        errorLabel.backgroundColor = .red
+        configureRefreshButton()
+        
     }
     
     func configureRefreshButton() {
@@ -91,14 +90,12 @@ private extension MainViewController {
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.catsModel?.count ?? 0
+        return self.models?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "\(CustomMainTableViewCell.self)", for: indexPath)
-        if let cell = cell as? CustomMainTableViewCell {
-            cell.setPhoto(catModel: self.catsModel?[safe: indexPath.row])
-        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(CustomMainTableViewCell.self)", for: indexPath) as? CustomMainTableViewCell else { return UITableViewCell() }
+        cell.setPhoto(model: self.models?[safe: indexPath.row])
         return cell
     }
     
@@ -107,7 +104,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        output?.catImageDidTap(cat: catsModel?[safe: indexPath.row])
+        output?.imageDidTap(cat: models?[safe: indexPath.row])
     }
     
 }

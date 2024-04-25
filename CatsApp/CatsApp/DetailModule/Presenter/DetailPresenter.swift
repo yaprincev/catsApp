@@ -11,10 +11,15 @@ import Foundation
 
 final class DetailPresenter {
     weak var view: DetailViewInput?
-    let networkService: NetworkServiceProtocol?
     var cat: CatModel?
-    var catInfo: CatInfo?
     let configurator = DetailModuleConfigurator()
+    
+    // MARK: - Private properties
+    
+    private let networkService: NetworkServiceProtocol?
+    private var catInfo: CatInfo?
+    
+    // MARK: - Init
     
     init(view: DetailViewInput, networkService: NetworkService, cat: CatModel?) {
         self.view = view
@@ -22,13 +27,21 @@ final class DetailPresenter {
         self.cat = cat
     }
     
+}
+
+// MARK: - Private methods
+
+private extension DetailPresenter {
+    
     func getCatInfo() {
         networkService?.getInfo(forURL: URLStorage.idCatURL.url, id: cat?.id, model: CatInfo.self) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let catInfo):
                 self.catInfo = catInfo
-                setCat()
+                DispatchQueue.main.async {
+                    self.view?.setCat(catInfo: catInfo)
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -40,10 +53,6 @@ final class DetailPresenter {
 //  MARK: - View output
 
 extension DetailPresenter: DetailViewOutput {
-    
-    func setCat() {
-        self.view?.setCat(catInfo: catInfo)
-    }
     
     func viewWasLoaded() {
         getCatInfo()

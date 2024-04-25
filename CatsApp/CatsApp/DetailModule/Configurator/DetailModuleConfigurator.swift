@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// MARK: - Detail configurator
 
 final class DetailModuleConfigurator {
     

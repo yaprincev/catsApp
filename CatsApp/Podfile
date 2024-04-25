@@ -1,0 +1,3 @@
+platform :ios, '16.4'
+
+pod 'ReactiveDataDisplayManager' ~> 7.3

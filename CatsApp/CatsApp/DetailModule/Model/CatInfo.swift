@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Cat info model
+
 struct CatInfo: Codable {
     var breeds: [Breed]
 }

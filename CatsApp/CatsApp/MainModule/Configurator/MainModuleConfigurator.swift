@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+// MARK: - Main configurator
+
 final class MainModuleConfigurator {
     
     func createMainModule() -> UIViewController {

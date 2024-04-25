@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Detail router
+
 final class DetailRouter: DetailRouterInput {
     weak var view: ModuleTransitionable?
 }

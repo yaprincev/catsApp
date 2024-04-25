@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Output protocol
 
 protocol MainViewOutput: AnyObject {
-    func getCats()
-    func catImageDidTap(cat: CatModel?)
+    func imageDidTap(cat: CatModel?)
     func viewWasLoaded()
+    func refreshData()
 }

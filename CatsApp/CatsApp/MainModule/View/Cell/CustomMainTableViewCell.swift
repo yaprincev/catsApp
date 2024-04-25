@@ -12,7 +12,9 @@ final class CustomMainTableViewCell: UITableViewCell {
     // MARK: - Outlets
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var catsImage: UIImageView!
+    @IBOutlet weak var dataImage: UIImageView!
+    
+    // MARK: - UITableViewCell
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,19 +28,19 @@ final class CustomMainTableViewCell: UITableViewCell {
 extension CustomMainTableViewCell {
     
     func configureAppearence() {
-        catsImage.layer.cornerRadius = 15
-        catsImage.contentMode = .scaleAspectFill
-        catsImage.translatesAutoresizingMaskIntoConstraints = false
+        dataImage.layer.cornerRadius = 15
+        dataImage.contentMode = .scaleAspectFill
+        dataImage.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.startAnimating()
     }
     
-    func setPhoto(catModel: CatModel?) {
-        guard let cat = catModel else { return }
+    func setPhoto(model: CatModel?) {
+        guard let cat = model else { return }
         guard let url = cat.url else { return }
-        ImageLoader().loadImage(from: url) { [weak self] result in
-            if case let .success(image) = result {
+        ImageLoader().loadImage(from: url, defaultImage: UIImage(named: "defaultImage")) { [weak self] result in
+            if let image = result {
                 DispatchQueue.main.async {
-                    self?.catsImage.image = image
+                    self?.dataImage.image = image
                     self?.activityIndicator.stopAnimating()
                     self?.activityIndicator.isHidden = true
                 }
