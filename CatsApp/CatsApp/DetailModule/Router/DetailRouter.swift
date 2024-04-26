@@ -10,5 +10,11 @@ import Foundation
 // MARK: - Detail router
 
 final class DetailRouter: DetailRouterInput {
+
     weak var view: ModuleTransitionable?
+    
+    func backToMain() {
+        view?.popToRoot(animated: true)
+    }
+    
 }

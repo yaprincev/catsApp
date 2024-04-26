@@ -15,7 +15,6 @@ protocol NetworkServiceProtocol {
 
 class NetworkService: NetworkConfiguration, NetworkServiceProtocol {
     
-    
     func getInfo <T: Decodable>(forURL url: URL?, id: String?, model: T.Type ,completion: @escaping (Result<T, Error>) -> Void) {
         DispatchQueue.main.async {
             let id = id ?? ""
@@ -35,4 +34,5 @@ class NetworkService: NetworkConfiguration, NetworkServiceProtocol {
             }.resume()
         }
     }
+    
 }

@@ -19,6 +19,7 @@ final class DetailModuleConfigurator {
         router.view = view
         let presenter = DetailPresenter(view: view, networkService: networkService, cat: cat)
         view.output = presenter
+        presenter.router = router
         return view
     }
     

@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="CatsApp" customModuleProvider="target">
             <connections>
                 <outlet property="describtionLabel" destination="yB2-d8-i9m" id="DF3-WI-p5j"/>
+                <outlet property="mainButton" destination="K42-Qw-UOI" id="yHZ-zC-XE5"/>
                 <outlet property="nameLabel" destination="wQv-7V-fin" id="IpX-Vq-Qug"/>
                 <outlet property="originLabel" destination="PfA-8d-jmD" id="Urp-nr-sQz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -40,6 +41,18 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K42-Qw-UOI">
+                    <rect key="frame" x="121.66666666666669" y="718" width="150" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="84i-NC-eBV"/>
+                        <constraint firstAttribute="width" constant="150" id="9XJ-t7-LSQ"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                    <connections>
+                        <action selector="backToMain:" destination="-1" eventType="touchUpInside" id="2gr-AU-LzY"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -49,9 +62,11 @@
                 <constraint firstItem="yB2-d8-i9m" firstAttribute="top" secondItem="PfA-8d-jmD" secondAttribute="bottom" constant="50" id="CQ5-6H-XEA"/>
                 <constraint firstItem="wQv-7V-fin" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="150" id="Dee-rx-QZr"/>
                 <constraint firstItem="wQv-7V-fin" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="IeF-B9-x1h"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="K42-Qw-UOI" secondAttribute="bottom" constant="50" id="Q0T-yG-LP5"/>
                 <constraint firstItem="PfA-8d-jmD" firstAttribute="top" secondItem="wQv-7V-fin" secondAttribute="bottom" constant="200" id="bsd-g1-jpr"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PfA-8d-jmD" secondAttribute="trailing" constant="10" id="j7A-5E-DA9"/>
                 <constraint firstItem="yB2-d8-i9m" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="jgc-Fn-g1t"/>
+                <constraint firstItem="K42-Qw-UOI" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="swS-2E-V9a"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wQv-7V-fin" secondAttribute="trailing" constant="10" id="wFv-bH-3Nc"/>
             </constraints>
             <point key="canvasLocation" x="58" y="21"/>

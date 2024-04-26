@@ -11,4 +11,5 @@ import Foundation
 
 protocol DetailViewOutput: AnyObject {
     func viewWasLoaded()
+    func mainButtonDidTap()
 }

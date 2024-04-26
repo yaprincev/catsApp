@@ -8,9 +8,10 @@
 import UIKit
 
 final class DetailViewController: UIViewController, ModuleTransitionable {
-
+    
     // MARK: - Outlets
     
+    @IBOutlet private weak var mainButton: UIButton!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var originLabel: UILabel!
     @IBOutlet private weak var describtionLabel: UILabel!
@@ -24,6 +25,23 @@ final class DetailViewController: UIViewController, ModuleTransitionable {
     override func viewDidLoad() {
         super.viewDidLoad()
         output?.viewWasLoaded()
+        configureMainButton()
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func backToMain(_ sender: Any) {
+        output?.mainButtonDidTap()
+    }
+    
+}
+
+// MARK: - Private methods
+
+private extension DetailViewController {
+ 
+    func configureMainButton() {
+        mainButton.setTitle("Back to main", for: .normal)
     }
     
 }

@@ -11,6 +11,7 @@ import UIKit
 // MARK: - Main router
 
 final class MainRouter: MainRouterInput {
+    
     weak var view: ModuleTransitionable?
     
     func navigateToDetail(cat: CatModel?) {

@@ -13,6 +13,8 @@ final class DetailPresenter {
     weak var view: DetailViewInput?
     var cat: CatModel?
     let configurator = DetailModuleConfigurator()
+    var output: DetailModuleOutput?
+    var router: DetailRouterInput?
     
     // MARK: - Private properties
     
@@ -54,10 +56,25 @@ private extension DetailPresenter {
 
 extension DetailPresenter: DetailViewOutput {
     
+    func mainButtonDidTap() {
+        router?.backToMain()
+    }
+    
+    
     func viewWasLoaded() {
         getCatInfo()
     }
     
 }
 
+
+
+
+extension DetailPresenter: DetailModuleInput {
+    func backToMain() {
+        router?.backToMain()
+    }
+    
+    
+}
 

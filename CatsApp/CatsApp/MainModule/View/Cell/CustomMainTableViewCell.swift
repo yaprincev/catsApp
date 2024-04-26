@@ -11,8 +11,8 @@ final class CustomMainTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var dataImage: UIImageView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var dataImage: UIImageView!
     
     // MARK: - UITableViewCell
     
