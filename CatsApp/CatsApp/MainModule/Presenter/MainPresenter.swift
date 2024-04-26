@@ -62,7 +62,7 @@ extension MainPresenter: MainViewOutput {
     }
     
     func imageDidTap(cat: CatModel?) {
-        router?.navigateToDetail(cat: cat)
+        router?.navigateToDetail(cat: cat, moduleOutput: self)
     }
     
     func viewWasLoaded() {

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F15AEA32BDA8929000EE0A6 /* MainModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15AEA22BDA8929000EE0A6 /* MainModuleInput.swift */; };
-		3F15AEA52BDA8933000EE0A6 /* MainModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15AEA42BDA8933000EE0A6 /* MainModuleOutput.swift */; };
 		3F15AEA72BDA8978000EE0A6 /* DetailModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15AEA62BDA8978000EE0A6 /* DetailModuleInput.swift */; };
 		3F15AEA92BDA8988000EE0A6 /* DetailModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15AEA82BDA8988000EE0A6 /* DetailModuleOutput.swift */; };
 		3F8BC96D2BCD3ADE0018489B /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BC96C2BCD3ADE0018489B /* NetworkConfiguration.swift */; };
@@ -46,8 +44,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F15AEA22BDA8929000EE0A6 /* MainModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleInput.swift; sourceTree = "<group>"; };
-		3F15AEA42BDA8933000EE0A6 /* MainModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleOutput.swift; sourceTree = "<group>"; };
 		3F15AEA62BDA8978000EE0A6 /* DetailModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModuleInput.swift; sourceTree = "<group>"; };
 		3F15AEA82BDA8988000EE0A6 /* DetailModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModuleOutput.swift; sourceTree = "<group>"; };
 		3F8BC96C2BCD3ADE0018489B /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
@@ -209,8 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				82F9FB652BC0958600C95BD7 /* MainPresenter.swift */,
-				3F15AEA22BDA8929000EE0A6 /* MainModuleInput.swift */,
-				3F15AEA42BDA8933000EE0A6 /* MainModuleOutput.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -369,7 +363,6 @@
 				3F972F662BCFF6E600B73052 /* CustomMainTableViewCell.swift in Sources */,
 				82F9FB862BC43ACC00C95BD7 /* CatInfo.swift in Sources */,
 				82F9FB8F2BD7CC4A00C95BD7 /* CatModel.swift in Sources */,
-				3F15AEA32BDA8929000EE0A6 /* MainModuleInput.swift in Sources */,
 				82F9FB8D2BD7C93700C95BD7 /* MainViewInput.swift in Sources */,
 				3FAEE7BC2BCE7BF8007204D2 /* MainModuleConfigurator.swift in Sources */,
 				82F9FB842BC43AB900C95BD7 /* DetailPresenter.swift in Sources */,
@@ -377,7 +370,6 @@
 				82F9FB8B2BD7C87A00C95BD7 /* MainViewOutput.swift in Sources */,
 				3F15AEA72BDA8978000EE0A6 /* DetailModuleInput.swift in Sources */,
 				82F9FB782BC3F94800C95BD7 /* ImageLoader.swift in Sources */,
-				3F15AEA52BDA8933000EE0A6 /* MainModuleOutput.swift in Sources */,
 				3F972F562BCFDDD800B73052 /* DetailRouter.swift in Sources */,
 				82F9FB812BC43A9B00C95BD7 /* DetailViewController.swift in Sources */,
 				82F9FB6B2BC0A0B400C95BD7 /* NetworkService.swift in Sources */,

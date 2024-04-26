@@ -64,8 +64,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
             endingLineNumber = "22"
-            landmarkName = "init(view:networkService:router:)"
-            landmarkType = "7">
+            landmarkName = "MainPresenter"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "56CE7509-7803-448A-9CFF-2B931E8DAA47 - aa1c896d7a274f23"
@@ -176,8 +176,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
             endingLineNumber = "31"
-            landmarkName = "getCatInfo()"
-            landmarkType = "7">
+            landmarkName = "DetailPresenter"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

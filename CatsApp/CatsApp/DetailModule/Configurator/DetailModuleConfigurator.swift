@@ -12,7 +12,7 @@ import UIKit
 
 final class DetailModuleConfigurator {
     
-    func createDetailModule(cat: CatModel?) -> UIViewController {
+    func createDetailModule(cat: CatModel?, moduleOutput: DetailModuleOutput? = nil) -> (UIViewController, DetailModuleInput) {
         let view = DetailViewController()
         let networkService = NetworkService()
         let router = DetailRouter()
@@ -20,7 +20,8 @@ final class DetailModuleConfigurator {
         let presenter = DetailPresenter(view: view, networkService: networkService, cat: cat)
         view.output = presenter
         presenter.router = router
-        return view
+        presenter.output = moduleOutput
+        return (view, presenter)
     }
     
 }
