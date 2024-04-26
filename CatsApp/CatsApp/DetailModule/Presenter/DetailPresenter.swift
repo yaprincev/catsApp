@@ -42,7 +42,7 @@ private extension DetailPresenter {
             case .success(let catInfo):
                 self.catInfo = catInfo
                 DispatchQueue.main.async {
-                    self.view?.setCat(catInfo: catInfo)
+                    self.view?.setInfo(catInfo: catInfo)
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -57,9 +57,8 @@ private extension DetailPresenter {
 extension DetailPresenter: DetailViewOutput {
     
     func mainButtonDidTap() {
-        router?.backToMain()
+        output?.backButtonDidTap()
     }
-    
     
     func viewWasLoaded() {
         getCatInfo()
@@ -67,14 +66,13 @@ extension DetailPresenter: DetailViewOutput {
     
 }
 
-
-
+// MARK: - Detail module output
 
 extension DetailPresenter: DetailModuleInput {
+    
     func backToMain() {
         router?.backToMain()
     }
-    
-    
+
 }
 

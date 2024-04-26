@@ -10,5 +10,5 @@ import Foundation
 // MARK: - Input protocol
 
 protocol DetailViewInput: AnyObject {
-    func setCat(catInfo: CatInfo?)
+    func setInfo(catInfo: CatInfo?)
 }

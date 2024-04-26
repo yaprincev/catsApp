@@ -16,7 +16,7 @@ final class DetailViewController: UIViewController, ModuleTransitionable {
     @IBOutlet private weak var originLabel: UILabel!
     @IBOutlet private weak var describtionLabel: UILabel!
     
-    // MARK: - Presenter
+    // MARK: - View output
     
     var output: DetailViewOutput?
     
@@ -50,7 +50,7 @@ private extension DetailViewController {
 
 extension DetailViewController: DetailViewInput {
     
-    func setCat(catInfo: CatInfo?) {
+    func setInfo(catInfo: CatInfo?) {
         nameLabel.text = catInfo?.breeds.first?.name
         nameLabel.font = UIFont.boldSystemFont(ofSize: 16)
         nameLabel.textAlignment = .center

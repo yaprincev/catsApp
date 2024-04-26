@@ -13,18 +13,16 @@ struct ImageLoader {
     let session = URLSession(configuration: .default)
 
     func loadImage(from url: URL, defaultImage: UIImage?,_ onLoadWasCompleted: @escaping (UIImage?) -> Void) {
-        DispatchQueue.main.async {
-            session.dataTask(with: url) { data, _, error in
-                if let error = error {
-                    onLoadWasCompleted(defaultImage)
-                    print(error.localizedDescription)
-                }
-                if let data = data, let image = UIImage(data: data) {
-                    onLoadWasCompleted(image)
-                }
+        session.dataTask(with: url) { data, _, error in
+            if let error = error {
+                onLoadWasCompleted(defaultImage)
+                print(error.localizedDescription)
             }
-            .resume()
+            if let data = data, let image = UIImage(data: data) {
+                onLoadWasCompleted(image)
+            }
         }
+        .resume()
     }
-     
+    
 }
