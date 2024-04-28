@@ -39,10 +39,7 @@ private extension MainPresenter {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let cats):
-                    for cat in cats {
-                        let catModel = CatModel(cat: cat)
-                        self.cats.append(catModel)
-                    }
+                    cats.map{ self.cats.append(CatModel(cat: $0)) }
                     self.view?.setupInitialState(cats: self.cats)
                 case .failure(let error):
                     self.view?.setupErrorState(error: error)
