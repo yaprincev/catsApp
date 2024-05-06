@@ -94,7 +94,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(CustomMainTableViewCell.self)", for: indexPath) as? CustomMainTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(cell: CustomMainTableViewCell.self, indexPath: indexPath) as? CustomMainTableViewCell else { return UITableViewCell() }
         cell.setPhoto(model: self.models?[safe: indexPath.row])
         return cell
     }

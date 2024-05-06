@@ -1,13 +1,11 @@
 //
-//  CatInfo.swift
+//  CatInfoModel.swift
 //  CatsApp
 //
-//  Created by Максим Япринцев on 08.04.2024.
+//  Created by student on 06.05.2024.
 //
 
 import Foundation
-
-// MARK: - Cat info model
 
 struct CatInfo: Codable {
     var breeds: [Breed]
@@ -18,3 +16,5 @@ struct Breed: Codable {
     var origin: String
     var description: String
 }
+
+

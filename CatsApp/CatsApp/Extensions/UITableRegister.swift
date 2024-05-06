@@ -14,5 +14,9 @@ extension UITableView {
         self.register(UINib(nibName: "\(cell.self)", bundle: nil), forCellReuseIdentifier: "\(cell.self)")
     }
     
+    func dequeueReusableCell<T: UITableViewCell>(cell: T.Type, indexPath: IndexPath) -> UITableViewCell {
+        return self.dequeueReusableCell(withIdentifier: "\(cell.self)", for: indexPath)
+    }
+    
 }
 

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3F15AEA72BDA8978000EE0A6 /* DetailModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15AEA62BDA8978000EE0A6 /* DetailModuleInput.swift */; };
 		3F15AEA92BDA8988000EE0A6 /* DetailModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15AEA82BDA8988000EE0A6 /* DetailModuleOutput.swift */; };
+		3F52AC932BE8E7C90055024D /* DetailRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52AC922BE8E7C90055024D /* DetailRouterInput.swift */; };
+		3F52AC952BE901770055024D /* CatInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52AC942BE901770055024D /* CatInfoEntity.swift */; };
+		3F52AC972BE902740055024D /* CatInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52AC962BE902740055024D /* CatInfoModel.swift */; };
 		3F8BC96D2BCD3ADE0018489B /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BC96C2BCD3ADE0018489B /* NetworkConfiguration.swift */; };
 		3F8BC9712BCD3C460018489B /* URLStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BC9702BCD3C460018489B /* URLStorage.swift */; };
 		3F972F562BCFDDD800B73052 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F972F552BCFDDD800B73052 /* DetailRouter.swift */; };
@@ -18,7 +21,6 @@
 		3FAEE7BF2BCE7FEC007204D2 /* DetailModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEE7BE2BCE7FEC007204D2 /* DetailModuleConfigurator.swift */; };
 		3FAEE7C42BCE87F5007204D2 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEE7C32BCE87F5007204D2 /* MainRouter.swift */; };
 		3FAEE7C62BCE8FC8007204D2 /* ModuleTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEE7C52BCE8FC8007204D2 /* ModuleTransitionable.swift */; };
-		823D13DA2BD80AC200CCBD53 /* DetailRouterIput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D13D92BD80AC200CCBD53 /* DetailRouterIput.swift */; };
 		823D13DD2BD80CB100CCBD53 /* DetailViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D13DC2BD80CB100CCBD53 /* DetailViewInput.swift */; };
 		823D13DF2BD814CD00CCBD53 /* DetailViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D13DE2BD814CD00CCBD53 /* DetailViewOutput.swift */; };
 		823D13E12BD81B1100CCBD53 /* SafeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D13E02BD81B1100CCBD53 /* SafeCollection.swift */; };
@@ -35,7 +37,6 @@
 		82F9FB812BC43A9B00C95BD7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F9FB7F2BC43A9B00C95BD7 /* DetailViewController.swift */; };
 		82F9FB822BC43A9B00C95BD7 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82F9FB802BC43A9B00C95BD7 /* DetailViewController.xib */; };
 		82F9FB842BC43AB900C95BD7 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F9FB832BC43AB800C95BD7 /* DetailPresenter.swift */; };
-		82F9FB862BC43ACC00C95BD7 /* CatInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F9FB852BC43ACC00C95BD7 /* CatInfo.swift */; };
 		82F9FB8B2BD7C87A00C95BD7 /* MainViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F9FB8A2BD7C87A00C95BD7 /* MainViewOutput.swift */; };
 		82F9FB8D2BD7C93700C95BD7 /* MainViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F9FB8C2BD7C93700C95BD7 /* MainViewInput.swift */; };
 		82F9FB8F2BD7CC4A00C95BD7 /* CatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F9FB8E2BD7CC4A00C95BD7 /* CatModel.swift */; };
@@ -46,6 +47,9 @@
 /* Begin PBXFileReference section */
 		3F15AEA62BDA8978000EE0A6 /* DetailModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModuleInput.swift; sourceTree = "<group>"; };
 		3F15AEA82BDA8988000EE0A6 /* DetailModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModuleOutput.swift; sourceTree = "<group>"; };
+		3F52AC922BE8E7C90055024D /* DetailRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouterInput.swift; sourceTree = "<group>"; };
+		3F52AC942BE901770055024D /* CatInfoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatInfoEntity.swift; sourceTree = "<group>"; };
+		3F52AC962BE902740055024D /* CatInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatInfoModel.swift; sourceTree = "<group>"; };
 		3F8BC96C2BCD3ADE0018489B /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
 		3F8BC9702BCD3C460018489B /* URLStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStorage.swift; sourceTree = "<group>"; };
 		3F972F552BCFDDD800B73052 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
@@ -55,7 +59,6 @@
 		3FAEE7BE2BCE7FEC007204D2 /* DetailModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModuleConfigurator.swift; sourceTree = "<group>"; };
 		3FAEE7C32BCE87F5007204D2 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		3FAEE7C52BCE8FC8007204D2 /* ModuleTransitionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTransitionable.swift; sourceTree = "<group>"; };
-		823D13D92BD80AC200CCBD53 /* DetailRouterIput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouterIput.swift; sourceTree = "<group>"; };
 		823D13DC2BD80CB100CCBD53 /* DetailViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewInput.swift; sourceTree = "<group>"; };
 		823D13DE2BD814CD00CCBD53 /* DetailViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewOutput.swift; sourceTree = "<group>"; };
 		823D13E02BD81B1100CCBD53 /* SafeCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeCollection.swift; sourceTree = "<group>"; };
@@ -74,7 +77,6 @@
 		82F9FB7F2BC43A9B00C95BD7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		82F9FB802BC43A9B00C95BD7 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		82F9FB832BC43AB800C95BD7 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
-		82F9FB852BC43ACC00C95BD7 /* CatInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatInfo.swift; sourceTree = "<group>"; };
 		82F9FB8A2BD7C87A00C95BD7 /* MainViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewOutput.swift; sourceTree = "<group>"; };
 		82F9FB8C2BD7C93700C95BD7 /* MainViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewInput.swift; sourceTree = "<group>"; };
 		82F9FB8E2BD7CC4A00C95BD7 /* CatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatModel.swift; sourceTree = "<group>"; };
@@ -97,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				3F972F552BCFDDD800B73052 /* DetailRouter.swift */,
-				823D13D92BD80AC200CCBD53 /* DetailRouterIput.swift */,
+				3F52AC922BE8E7C90055024D /* DetailRouterInput.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				82F9FB682BC09A1500C95BD7 /* CatEntity.swift */,
+				3F52AC942BE901770055024D /* CatInfoEntity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -244,7 +247,7 @@
 		82F9FB7C2BC43A6200C95BD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				82F9FB852BC43ACC00C95BD7 /* CatInfo.swift */,
+				3F52AC962BE902740055024D /* CatInfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -354,23 +357,23 @@
 			files = (
 				823E91EA2BC08C3200B8F31D /* MainViewController.swift in Sources */,
 				3FAEE7C62BCE8FC8007204D2 /* ModuleTransitionable.swift in Sources */,
-				823D13DA2BD80AC200CCBD53 /* DetailRouterIput.swift in Sources */,
 				823E91D42BC08B9400B8F31D /* AppDelegate.swift in Sources */,
 				3FAEE7BF2BCE7FEC007204D2 /* DetailModuleConfigurator.swift in Sources */,
 				823D13E12BD81B1100CCBD53 /* SafeCollection.swift in Sources */,
 				823D13DD2BD80CB100CCBD53 /* DetailViewInput.swift in Sources */,
 				82F9FB692BC09A1500C95BD7 /* CatEntity.swift in Sources */,
 				3F972F662BCFF6E600B73052 /* CustomMainTableViewCell.swift in Sources */,
-				82F9FB862BC43ACC00C95BD7 /* CatInfo.swift in Sources */,
 				82F9FB8F2BD7CC4A00C95BD7 /* CatModel.swift in Sources */,
 				82F9FB8D2BD7C93700C95BD7 /* MainViewInput.swift in Sources */,
 				3FAEE7BC2BCE7BF8007204D2 /* MainModuleConfigurator.swift in Sources */,
 				82F9FB842BC43AB900C95BD7 /* DetailPresenter.swift in Sources */,
 				823E91D62BC08B9400B8F31D /* SceneDelegate.swift in Sources */,
+				3F52AC932BE8E7C90055024D /* DetailRouterInput.swift in Sources */,
 				82F9FB8B2BD7C87A00C95BD7 /* MainViewOutput.swift in Sources */,
 				3F15AEA72BDA8978000EE0A6 /* DetailModuleInput.swift in Sources */,
 				82F9FB782BC3F94800C95BD7 /* ImageLoader.swift in Sources */,
 				3F972F562BCFDDD800B73052 /* DetailRouter.swift in Sources */,
+				3F52AC972BE902740055024D /* CatInfoModel.swift in Sources */,
 				82F9FB812BC43A9B00C95BD7 /* DetailViewController.swift in Sources */,
 				82F9FB6B2BC0A0B400C95BD7 /* NetworkService.swift in Sources */,
 				3F8BC9712BCD3C460018489B /* URLStorage.swift in Sources */,
@@ -379,6 +382,7 @@
 				823D13DF2BD814CD00CCBD53 /* DetailViewOutput.swift in Sources */,
 				82F9FB912BD7DA2200C95BD7 /* UITableRegister.swift in Sources */,
 				82F9FB932BD7FC2C00C95BD7 /* MainRouterInput.swift in Sources */,
+				3F52AC952BE901770055024D /* CatInfoEntity.swift in Sources */,
 				3FAEE7C42BCE87F5007204D2 /* MainRouter.swift in Sources */,
 				3F15AEA92BDA8988000EE0A6 /* DetailModuleOutput.swift in Sources */,
 			);

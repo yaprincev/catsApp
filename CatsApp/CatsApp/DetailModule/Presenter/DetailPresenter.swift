@@ -10,11 +10,20 @@ import Foundation
 // MARK: - Presenter
 
 final class DetailPresenter {
+    
+    // MARK:  - Proerties
+    
     weak var view: DetailViewInput?
     var cat: CatModel?
-    let configurator = DetailModuleConfigurator()
-    var output: DetailModuleOutput?
     var router: DetailRouterInput?
+    
+    // MARK: - Detail Configurator
+    
+    let configurator = DetailModuleConfigurator()
+    
+    // MARK: - Detail Module Output
+    
+    var output: DetailModuleOutput?
     
     // MARK: - Private properties
     
