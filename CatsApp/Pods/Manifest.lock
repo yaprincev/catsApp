@@ -1,0 +1,16 @@
+PODS:
+  - ReactiveDataDisplayManager (7.4)
+
+DEPENDENCIES:
+  - ReactiveDataDisplayManager
+
+SPEC REPOS:
+  trunk:
+    - ReactiveDataDisplayManager
+
+SPEC CHECKSUMS:
+  ReactiveDataDisplayManager: e28d0ba627c48cafa101c2f5a0fa83be62310e45
+
+PODFILE CHECKSUM: 945fd09e48507000f903a5a277c2350b5a79caa1
+
+COCOAPODS: 1.15.2

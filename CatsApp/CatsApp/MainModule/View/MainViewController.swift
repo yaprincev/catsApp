@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ReactiveDataDisplayManager
 
 final class MainViewController: UIViewController, ModuleTransitionable {
 
@@ -18,6 +19,10 @@ final class MainViewController: UIViewController, ModuleTransitionable {
     
     // MARK: - Private properties
     
+    private lazy var adapter = imageTable.rddm.baseBuilder
+        .add(plugin: .selectable())
+        .add(plugin: .accessibility())
+        .build()
     private var models: [CatModel]?
     
     // MARK: - View output
@@ -47,8 +52,9 @@ extension MainViewController: MainViewInput {
     
     func setupInitialState(cats: [CatModel]?) {
         models = cats
+        fillAdapter()
         DispatchQueue.main.async {
-            self.imageTable.reloadData()
+       //     self.imageTable.reloadData()
         }
     }
     
@@ -63,15 +69,17 @@ extension MainViewController: MainViewInput {
 private extension MainViewController {
     
     func configureAppearence() {
-        imageTable.dataSource = self
-        imageTable.delegate = self
-        imageTable.register(cell: CustomMainTableViewCell.self)
+       // imageTable.dataSource = self
+        //imageTable.delegate = self
+       // imageTable.register(cell: CustomMainTableViewCell.self)
         imageTable.separatorStyle = .none
         errorView.isHidden = true
+        refreshButton.isHidden = true
     }
     
     func showError(error: Error) {
         errorView.isHidden = false
+        refreshButton.isHidden = false
         errorLabel.text = error.localizedDescription
         errorLabel.backgroundColor = .red
         configureRefreshButton()
@@ -83,11 +91,28 @@ private extension MainViewController {
         refreshButton.setTitleColor(.black, for: .normal)
     }
     
+    func fillAdapter() {
+        guard let catModels = models else { return }
+        
+        for model in catModels {
+            let generator = CustomMainTableViewCell.rddm.baseGenerator(with: model)
+            
+            generator.didSelectEvent += { [weak self] in
+                self?.output?.imageDidTap(cat: model)
+            }
+            
+            adapter.addCellGenerator(generator)
+        }
+        
+        adapter.forceRefill()
+        
+    }
+    
 }
 
 // MARK: - UITableView
 
-extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+/*extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.models?.count ?? 0
@@ -109,3 +134,4 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
+*/

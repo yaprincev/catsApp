@@ -1,3 +1,10 @@
-platform :ios, '16.4'
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
 
-pod 'ReactiveDataDisplayManager' ~> 7.3
+target 'CatsApp' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  pod 'ReactiveDataDisplayManager'
+
+end
