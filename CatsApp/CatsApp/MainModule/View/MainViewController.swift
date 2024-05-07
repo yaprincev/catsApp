@@ -52,9 +52,8 @@ extension MainViewController: MainViewInput {
     
     func setupInitialState(cats: [CatModel]?) {
         models = cats
-        fillAdapter()
         DispatchQueue.main.async {
-       //     self.imageTable.reloadData()
+            self.fillAdapter()
         }
     }
     
@@ -69,9 +68,6 @@ extension MainViewController: MainViewInput {
 private extension MainViewController {
     
     func configureAppearence() {
-       // imageTable.dataSource = self
-        //imageTable.delegate = self
-       // imageTable.register(cell: CustomMainTableViewCell.self)
         imageTable.separatorStyle = .none
         errorView.isHidden = true
         refreshButton.isHidden = true
@@ -83,7 +79,6 @@ private extension MainViewController {
         errorLabel.text = error.localizedDescription
         errorLabel.backgroundColor = .red
         configureRefreshButton()
-        
     }
     
     func configureRefreshButton() {
@@ -105,33 +100,6 @@ private extension MainViewController {
         }
         
         adapter.forceRefill()
-        
     }
     
 }
-
-// MARK: - UITableView
-
-/*extension MainViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.models?.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(cell: CustomMainTableViewCell.self, indexPath: indexPath) as? CustomMainTableViewCell else { return UITableViewCell() }
-        cell.setPhoto(model: self.models?[safe: indexPath.row])
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.bounds.height / 2
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        output?.imageDidTap(cat: models?[safe: indexPath.row])
-    }
-    
-}
-
-*/
