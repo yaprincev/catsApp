@@ -50,7 +50,7 @@ private extension DetailViewController {
 
 extension DetailViewController: DetailViewInput {
     
-    func setInfo(catInfo: CatInfo?) {
+    func setInfo(catInfo: CatInfoModel?) {
         nameLabel.text = catInfo?.breeds.first?.name
         nameLabel.font = UIFont.boldSystemFont(ofSize: 16)
         nameLabel.textAlignment = .center

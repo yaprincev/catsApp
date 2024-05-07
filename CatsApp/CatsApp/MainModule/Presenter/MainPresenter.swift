@@ -10,6 +10,9 @@ import Foundation
 // MARK: - Presenter
 
 final class MainPresenter {
+    
+    // MARK: - Properties
+    
     weak var view: MainViewInput?
     var router: MainRouterInput?
     var input: DetailModuleInput?
