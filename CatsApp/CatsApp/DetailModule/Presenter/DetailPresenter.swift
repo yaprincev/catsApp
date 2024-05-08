@@ -17,10 +17,6 @@ final class DetailPresenter {
     var cat: CatModel?
     var router: DetailRouterInput?
     
-    // MARK: - Detail Configurator
-    
-    let configurator = DetailModuleConfigurator()
-    
     // MARK: - Detail Module Output
     
     var output: DetailModuleOutput?

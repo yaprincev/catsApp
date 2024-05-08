@@ -15,6 +15,9 @@ final class MainPresenter {
     
     weak var view: MainViewInput?
     var router: MainRouterInput?
+    
+    // MARK: - Detail Module Input
+    
     var input: DetailModuleInput?
     
     // MARK: - Private properties
