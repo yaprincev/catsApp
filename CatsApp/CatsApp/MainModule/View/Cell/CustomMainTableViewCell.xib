@@ -18,14 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KCY-A8-GMJ">
-                        <rect key="frame" x="15" y="15" width="200" height="450"/>
+                        <rect key="frame" x="15" y="15" width="290" height="450"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="450" id="dHD-Sa-BMu"/>
-                            <constraint firstAttribute="width" constant="200" id="qmF-h3-Jqi"/>
+                            <constraint firstAttribute="height" constant="450" id="97E-DL-jST"/>
                         </constraints>
                     </imageView>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ajW-DM-mrw">
-                        <rect key="frame" x="105" y="230" width="20" height="20"/>
+                        <rect key="frame" x="150" y="230" width="20" height="20"/>
                     </activityIndicatorView>
                 </subviews>
                 <constraints>

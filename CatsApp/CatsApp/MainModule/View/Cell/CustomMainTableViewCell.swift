@@ -8,9 +8,9 @@
 import UIKit
 import ReactiveDataDisplayManager
 
-final class CustomMainTableViewCell: UITableViewCell, CalculatableHeightItem {
+final class CustomMainTableViewCell: UITableViewCell {
  
-        // MARK: - Outlets
+    // MARK: - Outlets
     
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var dataImage: UIImageView!
@@ -20,12 +20,6 @@ final class CustomMainTableViewCell: UITableViewCell, CalculatableHeightItem {
     override func awakeFromNib() {
         super.awakeFromNib()
         configureAppearence()
-    }
-    
-    // MARK: - CalculatableHeightItem
-    
-    static func getHeight(forWidth width: CGFloat, with model: CatModel?) -> CGFloat {
-        return CGFloat(50)
     }
     
 }
