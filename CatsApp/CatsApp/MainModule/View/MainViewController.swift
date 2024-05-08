@@ -21,7 +21,6 @@ final class MainViewController: UIViewController, ModuleTransitionable {
     
     private lazy var adapter = imageTable.rddm.baseBuilder
         .add(plugin: .selectable())
-        .add(plugin: .accessibility())
         .build()
     private var models: [CatModel]?
     
